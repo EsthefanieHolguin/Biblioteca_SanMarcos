@@ -4,12 +4,19 @@
 
 {% block contenido %} 
 
-<div class="card">
+<div class="card", style="width: 80vw; margin-right: 1vw">
     <div class="card-header">
         <div class="row">
-            <div class="col-md-4">
-                <a name="" id="" class="btn btn-success" href="{% url 'crear' %}" role="button">Agregar nuevo Libro</a>
+            <div class="col-md-2">
+                <a name="" id="" class="btn btn-success" href="{% url 'crear' %}" role="button">Agregar Libro</a>
             </div>
+
+            <!--Boton carga masiva-->
+            <div class="col-md-2">
+                <a name="" id="" class="btn btn-success" href="{% url 'subir_csv' %}" role="button">Carga Masiva</a>
+            </div>
+
+
             <!--Barra de búsqueda-->
             <div class="col-md-8 text-right">
                 <form method="get">
@@ -52,9 +59,7 @@
                         <td>{{ libro.categoria }}</td>
                         <td>{{ libro.ubicacion }}</td>
                         <td>{{ libro.ejemplares_disponibles }}</td>
-                        <!-- <td>
-                            <img src="{{ libro.imagen.url }}" height="100" />
-                        </td> -->
+
                         <td> <a name="" id="" class="btn btn-info" href="{% url 'editar' libro.id %}" role="button">Editar</a>  
                             <a name="" id="" class="btn btn-danger" href="{% url 'eliminar' libro.id %}" role="button">Borrar</a></td>
                     </tr>
