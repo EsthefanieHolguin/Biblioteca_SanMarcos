@@ -1,0 +1,71 @@
+{%extends "base.html"%}
+
+{% block titulo %} Préstamos {% endblock %}
+
+{% block contenido %} 
+
+<div class="card", style="width: 80vw; margin-right: 1vw">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-2">
+                <a name="" id="" class="btn btn-success" href="{% url 'nuevo_prestamo' %}" role="button">Nuevo Préstamo</a>
+            </div>
+
+            <!--Boton Editar Préstamo-->
+            <div class="col-md-2">
+                <a name="" id="" class="btn btn-success" href="{#% url 'subir_csv' %#}" role="button">Editar Préstamo</a>
+            </div>
+
+
+            <!--Búsqueda Préstamos-->
+            <div class="col-md-8 text-right">
+                <form method="get">
+                    <div id="custom-search-input">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Ingrese Ejemplar o Rut Usuario " name="buscar_prestamo">
+                            <button class="btn btn-success" type="submit">Buscar</button> 
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Préstamos</h4>
+        
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr> <!--Header tabla Préstamos-->
+                        <th scope="col">ID Préstamo</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Fecha Préstamo</th>
+                        <th scope="col">Ejemplar</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for prestamo in prestamos %}
+
+                    <tr class="">
+                        <td>{{ prestamo.id_prestamo }}</td>
+                        <td>{{ prestamo.usuario }}</td>
+                        <td>{{ prestamo.fecha_prestamo }}</td>
+                        <td>{{ prestamo.ejemplar }}</td>
+
+                        <td> <a name="" id="" class="btn btn-info" href="#" role="button">Editar</a>  
+                            <a name="" id="" class="btn btn-danger" href="#" role="button">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="card-footer text-muted">
+        
+    </div>
+</div>
+
+{% endblock %}
