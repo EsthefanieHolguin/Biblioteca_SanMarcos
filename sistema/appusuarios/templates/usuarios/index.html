@@ -8,12 +8,12 @@
     <div class="card-header">
         <div class="row">
             <div class="col-md-2">
-                <a name="" id="" class="btn btn-success" href="{% url 'crear' %}" role="button">Agregar Usuario</a>
+                <a name="" id="" class="btn btn-success" href="{% url 'crear_usuario' %}" role="button">Agregar Usuario</a>
             </div>
 
             <!--Boton carga masiva-->
             <div class="col-md-2">
-                <a name="" id="" class="btn btn-success" href="{#% url 'subir_csv' %#}" role="button">Carga Masiva</a>
+                <a name="" id="" class="btn btn-success" href="{% url 'subir_usuarios' %}" role="button">Carga Masiva</a>
             </div>
 
 
@@ -55,8 +55,8 @@
                         <td>{{ usuario.email }}</td>
                         <td>{{ usuario.curso }}</td>
 
-                        <td> <a name="" id="" class="btn btn-info" href="{#% url 'editar' libro.id %#}" role="button">Editar</a>  
-                            <a name="" id="" class="btn btn-danger" href="{#% url 'eliminar' libro.id %#}" role="button">Borrar</a></td>
+                        <td> <a name="" id="" class="btn btn-info" href="{% url 'editar_usuario' usuario.id_usuario %}" role="button">Editar</a>  
+                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminar_usuario' usuario.id_usuario %}" role="button">Borrar</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
