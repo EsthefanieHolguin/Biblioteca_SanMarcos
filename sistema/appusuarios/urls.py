@@ -10,7 +10,12 @@ from django.conf.urls.static import static
 #Acá el usuario va a poder entrar y acceder a la vista y se debe colocar la funcion definida en views.py en cada path
 urlpatterns = [
     path('usuarios', views.usuarios, name='usuarios'),
-    path('usuarios/crear', views.crear, name='crear'),
+    path('usuarios/crear', views.crear, name='crear_usuario'),
+    path('usuarios/editar', views.editar, name='editar_usuario'),
+    path('usuarios/eliminar/<int:id>', views.eliminar, name='eliminar_usuario'),
+    path('usuarios/editar/<int:id>', views.editar, name='editar_usuario'),
+    path('usuarios/upload', views.subir_usuarios, name='subir_usuarios'),
+
 
 
 
