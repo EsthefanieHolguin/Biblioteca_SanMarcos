@@ -20,9 +20,9 @@ class Libro(models.Model):
     titulo = models.CharField(max_length=100, verbose_name='Título', null=False, blank=False)
     autor = models.CharField(max_length=100, verbose_name='Autor', null=False, blank=False)
     categoria = models.CharField(max_length=50, verbose_name='Categoría', choices=CATEGORIAS_CHOICES)
-    ubicacion = models.CharField(max_length=20, verbose_name='Ubicación', null=True, blank=True)
+    ubicacion = models.CharField(max_length=20, verbose_name='Ubicación', null=False, blank=False)
     ejemplares_disponibles = models.IntegerField(default=0)
-    imagen = models.ImageField(upload_to='imagenes/', verbose_name='Imagen', null=True)
+    imagen = models.ImageField(upload_to='imagenes/', verbose_name='Imagen', null=True, blank=True)
     descripcion = models.TextField(verbose_name='Descripción', null=True, blank=True)
 
     def __str__(self):
@@ -32,3 +32,6 @@ class Libro(models.Model):
     def delete(self, using=None, keep_parents=False):
         self.imagen.storage.delete(self.imagen.name)
         super().delete()
+
+    class Meta:
+        verbose_name = "Datos_Libros"

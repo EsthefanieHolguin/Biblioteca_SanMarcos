@@ -44,3 +44,35 @@ def eliminar(request, id):
     libro = Libro.objects.get(id=id)
     libro.delete()
     return redirect('libros')
+
+def subir_csv(request):
+    template_name = "libros/upload_csv.html"
+
+    if request.method == "POST":
+        csv_file = request.FILES["csv_file"]
+
+        file_data = csv_file.read().decode("utf-8")
+        lines = file_data.split("\n")
+        for line in lines:
+            fields = line.split(",")
+            if len(fields)>1:
+                data_dict = {}
+                data_dict ["isbn"] = fields[1]
+                data_dict ["titulo"] = fields[2]
+                data_dict ["autor"] = fields[3]
+                data_dict ["categoria"] = fields[4]
+                data_dict ["ubicacion"] = fields[5]
+                data_dict ["ejemplares_disponibles"] = fields[6]
+                data_dict ["descripcion"] = fields[8]
+
+                try:
+                    form = LibroForm(data_dict)
+                    if form.is_valid():
+                        form.save()
+                    else:
+                        print (form.errors.as_json(),data_dict["titulo"])
+                except Exception as ex:
+                    print(repr(ex))
+        return redirect('libros')
+
+    return render(request,template_name,{})
