@@ -1,5 +1,3 @@
-from django.shortcuts import render_to_response, get_object_or_404, render
-from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.db.models import Q
@@ -19,8 +17,8 @@ def prestamos(request):
 
     if busqueda_prestamo:
         prestamos = Prestamo.objects.filter(
-            Q(id_prestamo = busqueda_prestamo) |
-            Q(rut_usuario = busqueda_prestamo) |
+            Q(id = busqueda_prestamo) |
+            Q(usuario = busqueda_prestamo) |
             Q(fecha_prestamo = busqueda_prestamo)|
             Q(libro = busqueda_prestamo)
         ).distinct()

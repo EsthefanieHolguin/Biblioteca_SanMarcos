@@ -86,6 +86,7 @@ DATABASES = {
         'PASSWORD': 'sma12345',
         'HOST': 'bibliotecasma.cakqffkgxbjs.sa-east-1.rds.amazonaws.com',
         'PORT': '3306',
+        
     }
 }
 
