@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('appejemplares.urls')), #Registramos la url raíz de la app libreria
     path('', include('appusuarios.urls')),
+    path('', include('appcatalogo.urls')),
 ]
