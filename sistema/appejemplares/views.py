@@ -76,3 +76,18 @@ def subir_csv(request):
         return redirect('libros')
 
     return render(request,template_name,{})
+
+def catalogo(request):  #Listar libros y barra busqueda en el catalogo (para el usuario que reserve)
+    busqueda = request.GET.get("buscar")
+    libros = Libro.objects.all()
+
+    #querys con la busqueda, que se obtiene del input name del index.html
+    if busqueda:
+        libros = Libro.objects.filter(
+            Q(titulo__icontains = busqueda) |
+            Q(autor__icontains = busqueda) |
+            Q(isbn = busqueda) |
+            Q(categoria__icontains = busqueda)
+        ).distinct()
+
+    return render(request, 'paginas/catalogo.html', {'libros': libros})

@@ -17,6 +17,7 @@ urlpatterns = [
     path('eliminar/<int:id>', views.eliminar, name='eliminar'),
     path('libros/editar/<int:id>', views.editar, name='editar'),
     path('csv/upload', views.subir_csv, name='subir_csv'),
+    path('catalogo', views.catalogo, name='catalogo'),
 
 
 
