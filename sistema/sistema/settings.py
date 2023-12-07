@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'appejemplares',
     'appusuarios',
     'appreservas',
-    #'appprestamos'
+    'appprestamos'
 ]
 
 MIDDLEWARE = [

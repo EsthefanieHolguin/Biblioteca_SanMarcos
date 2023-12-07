@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.db.models import Q
 from .models import Libro
 from .forms import LibroForm
+from appprestamos.models import Prestamo
+from appprestamos.forms import PrestamoForm
 
 # Acá creamos las funciones para acceder a las vistas HTML
 
@@ -91,3 +93,33 @@ def catalogo(request):  #Listar libros y barra busqueda en el catalogo (para el 
         ).distinct()
 
     return render(request, 'paginas/catalogo.html', {'libros': libros})
+
+    # Create your views here.
+def prestamos(request):
+
+    prestamos = Prestamo.objects.all()
+
+   # prestamos = Prestamo.objects.filter( 
+   #     Q(ejemplares_disponibles > 0)
+   # ) 
+    return render(request, 'prestamos/index.html', {'prestamos': prestamos})
+
+def nuevo_prestamo(request):
+    formulario = PrestamoForm(request.POST or None, request.FILES or None)
+    if formulario.is_valid():
+        formulario.save()
+        return redirect('prestamos')
+    return render(request, 'prestamos/nuevo_prestamo.html', {'formulario': formulario})
+
+def editar_prestamo(request,id):
+    prestamo = prestamo.objects.get(id=id)
+    formulario = PrestamoForm(request.POST or None, request.FILES or None, instance=prestamo)
+    if formulario.is_valid() and request.POST:
+        formulario.save()
+        return redirect('prestamos')
+    return render(request, 'prestamos/editar_prestamo.html', {'formulario':formulario})
+
+def eliminar_prestamo(request, id):
+    prestamo = Prestamo.objects.get(id=id)
+    prestamo.delete()
+    return redirect('prestamos')
