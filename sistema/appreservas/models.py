@@ -9,15 +9,11 @@ class Reserva(models.Model):
     id_reserva = models.AutoField(primary_key=True)
     fecha_reserva = models.DateField(auto_now_add=True)
     id_libro = models.ForeignKey(Libro, on_delete=models.CASCADE,null=False,blank=False)
-    isbn = Libro.isbn
-    titulo = Libro.titulo
-    id_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE,null=True,blank=False)
-    rut_usuario = Usuario.rut
-    usuario = Usuario.nombre_usuario
-    curso = Usuario.curso
+    id_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE,null=False,blank=False)
+
 
     def __str__(self):
-        fila = "ID Reserva: " + self.id_reserva + " - " + "Libro: " + " " + self.titulo + " - " + "Usuario: " + " " + self.usuario
+        fila = "ID Reserva: " + self.id_reserva
         return fila
 
     class Meta:
