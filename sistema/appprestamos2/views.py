@@ -8,20 +8,14 @@ from appejemplares.models import Libro
 from appejemplares import views
 from appusuarios.models import Usuario
 
-
-# Create your views here.
+    # Create your views here.
 def prestamos(request):
 
-    busqueda_prestamo = request.GET.get("buscar_prestamo")
     prestamos = Prestamo.objects.all()
 
-    if busqueda_prestamo:
-        prestamos = Prestamo.objects.filter(
-            Q(id = busqueda_prestamo) |
-            Q(usuario = busqueda_prestamo) |
-            Q(fecha_prestamo = busqueda_prestamo)|
-            Q(libro = busqueda_prestamo)
-        ).distinct()
+   # prestamos = Prestamo.objects.filter( 
+   #     Q(ejemplares_disponibles > 0)
+   # ) 
     return render(request, 'prestamos/index.html', {'prestamos': prestamos})
 
 def nuevo_prestamo(request):

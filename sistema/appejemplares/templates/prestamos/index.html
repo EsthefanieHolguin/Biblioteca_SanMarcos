@@ -36,26 +36,22 @@
         <div class="table-responsive">
             <table class="table table-primary">
                 <thead>
-                    <tr> <!--Header tabla Préstamos-->
+                    <tr> <!--Cabeceras de la tabla-->
                         <th scope="col">ID Préstamo</th>
-                        <th scope="col">Usuario</th>
                         <th scope="col">Fecha Préstamo</th>
-                        <th scope="col">Ejemplar</th>
+                        <th scope="col">ID Libro</th>
+                        <th scope="col">Id Usuario</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-
                     {% for prestamo in prestamos %}
-
                     <tr class="">
-                        <td>{{ prestamo.id }}</td>
-                        <td>{{ prestamo.rut_usuario }}</td>
+                        <td>{{ prestamo.id_prestamo }}</td>
                         <td>{{ prestamo.fecha_prestamo }}</td>
-                        <td>{{ prestamo.libro }}</td>
-
-                        <td> <a name="" id="" class="btn btn-info" href="#" role="button">Editar</a>  
-                            <a name="" id="" class="btn btn-danger" href="#" role="button">Eliminar</a></td>
+                        <td>{{ librprestamoo.id_libro }}</td>
+                        <td>{{ prestamo.id_usuario }}</td>
+                        <td> <a name="" id="" class="btn btn-info" href="{#% url 'editar' libro.id %#}" role="button">Prestamo</a> </td>
                     </tr>
                     {% endfor %}
                 </tbody>
