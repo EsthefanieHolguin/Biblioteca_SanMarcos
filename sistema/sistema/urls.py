@@ -23,5 +23,6 @@ urlpatterns = [
 path('', include('appejemplares.urls')), #Registramos la url raíz de la app libreria
     path('', include('appusuarios.urls')),
     path('', include('appprestamos.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 
 ]

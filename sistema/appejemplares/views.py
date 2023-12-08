@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 from django.http import HttpResponse
 from django.db.models import Q
 from .models import Libro
@@ -11,7 +13,24 @@ def inicio(request):
 def nosotros(request):
     return render(request, 'paginas/nosotros.html')
 
-def libros(request):  #Listar libros y barra busqueda
+def catalogo(request):  #Listar libros y barra busqueda en el catalogo (para el usuario que reserve)
+    busqueda = request.GET.get("buscar")
+    libros = Libro.objects.all()
+
+    #querys con la busqueda, que se obtiene del input name del index.html
+    if busqueda:
+        libros = Libro.objects.filter(
+            Q(titulo__icontains = busqueda) |
+            Q(autor__icontains = busqueda) |
+            Q(isbn = busqueda) |
+            Q(categoria__icontains = busqueda)
+        ).distinct()
+
+    return render(request, 'paginas/catalogo.html', {'libros': libros})
+
+
+@login_required
+def libros(request):  #Listar libros y barra busqueda para bibliotecario
     busqueda = request.GET.get("buscar")
     libros = Libro.objects.all()
 
@@ -78,17 +97,6 @@ def subir_csv(request):
 
     return render(request,template_name,{})
 
-def catalogo(request):  #Listar libros y barra busqueda en el catalogo (para el usuario que reserve)
-    busqueda = request.GET.get("buscar")
-    libros = Libro.objects.all()
-
-    #querys con la busqueda, que se obtiene del input name del index.html
-    if busqueda:
-        libros = Libro.objects.filter(
-            Q(titulo__icontains = busqueda) |
-            Q(autor__icontains = busqueda) |
-            Q(isbn = busqueda) |
-            Q(categoria__icontains = busqueda)
-        ).distinct()
-
-    return render(request, 'paginas/catalogo.html', {'libros': libros})
+def exit(request):
+    logout(request)
+    return redirect('inicio')

@@ -18,6 +18,7 @@ urlpatterns = [
     path('libros/editar/<int:isbn>', views.editar, name='editar'),
     path('csv/upload', views.subir_csv, name='subir_csv'),
     path('catalogo', views.catalogo, name='catalogo'),
+    path('logout/', views.exit, name='exit'),
 
 
 

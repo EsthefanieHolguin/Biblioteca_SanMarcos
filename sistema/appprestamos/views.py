@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.db.models import Q
 from .models import Prestamo
@@ -8,7 +9,8 @@ from appejemplares.models import Libro
 from appejemplares import views
 from appusuarios.models import Usuario
 
-    # Create your views here.
+# Create your views here.
+@login_required
 def prestamos(request):
 
     prestamos = Prestamo.objects.all()
