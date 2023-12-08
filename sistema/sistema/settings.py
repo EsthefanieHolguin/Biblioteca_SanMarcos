@@ -138,3 +138,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'imagenes')
 MEDIA_URL = '/imagenes/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Variables de redireccion login y logout
+LOGIN_REDIRECT_URL = 'inicio'
+LOGOUT_REDIRECT_URL = 'inicio'

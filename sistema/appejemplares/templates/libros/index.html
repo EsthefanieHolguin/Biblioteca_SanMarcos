@@ -7,6 +7,12 @@
 <div class="card", style="width: 80vw; margin-right: 1vw">
     <div class="card-header">
         <div class="row">
+            {% if request.user.is_authenticated %}
+                <h5>{{ user.username | upper }}, bienvenido</h5>
+                <br><br>
+            {% endif %}
+        </div>
+        <div class="row">
             <div class="col-md-2">
                 <a name="" id="" class="btn btn-success" href="{% url 'crear' %}" role="button">Agregar Libro</a>
             </div>
