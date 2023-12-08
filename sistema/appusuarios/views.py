@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.http import HttpResponse
@@ -22,7 +23,21 @@ def usuarios(request):  #Listar usuarios y barra busqueda
             Q(email__icontains = busqueda)
         ).distinct()
 
-    return render(request, 'usuarios/index.html', {'usuarios': usuarios})
+    # Configuración de la paginación
+    paginator = Paginator(usuarios, 10)  # Muestra 10 libros por página
+    page = request.GET.get('page')
+
+    try:
+        usuarios_paginados = paginator.page(page)
+    except PageNotAnInteger:
+        # Si la página no es un número entero, entrega la primera página.
+        usuarios_paginados = paginator.page(1)
+    except EmptyPage:
+        # Si la página está fuera de rango (por encima de la última), entrega la última página.
+        usuarios_paginados = paginator.page(paginator.num_pages)
+
+
+    return render(request, 'usuarios/index.html', {'usuarios': usuarios_paginados})
 
 def crear(request):
     formulario = UsuarioForm(request.POST or None, request.FILES or None)
@@ -51,7 +66,17 @@ def subir_usuarios(request):
 
         file_data = csv_usuarios.read().decode("utf-8")
         lines = file_data.split("\n")
+
+        # Omitir la primera línea (cabecera)
+        header_skipped = False
+
         for line in lines:
+
+            # Omitir la primera línea (cabecera)
+            if not header_skipped:
+                header_skipped = True
+                continue
+
             fields = line.split(",")
             if len(fields)>1:
                 data_dict = {}

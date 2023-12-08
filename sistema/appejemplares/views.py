@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.http import HttpResponse
@@ -43,7 +44,20 @@ def libros(request):  #Listar libros y barra busqueda para bibliotecario
             Q(categoria__icontains = busqueda)
         ).distinct()
 
-    return render(request, 'libros/index.html', {'libros': libros})
+    # Configuración de la paginación
+    paginator = Paginator(libros, 10)  # Muestra 10 libros por página
+    page = request.GET.get('page')
+
+    try:
+        libros_paginados = paginator.page(page)
+    except PageNotAnInteger:
+        # Si la página no es un número entero, entrega la primera página.
+        libros_paginados = paginator.page(1)
+    except EmptyPage:
+        # Si la página está fuera de rango (por encima de la última), entrega la última página.
+        libros_paginados = paginator.page(paginator.num_pages)
+
+    return render(request, 'libros/index.html', {'libros': libros_paginados})
 
 def crear(request):
     formulario = LibroForm(request.POST or None, request.FILES or None)
@@ -73,17 +87,30 @@ def subir_csv(request):
 
         file_data = csv_file.read().decode("utf-8")
         lines = file_data.split("\n")
+
+        # Omitir la primera línea (cabecera)
+        header_skipped = False
+
         for line in lines:
+
+            # Omitir la primera línea (cabecera)
+            if not header_skipped:
+                header_skipped = True
+                continue
+
             fields = line.split(",")
             if len(fields)>1:
                 data_dict = {}
-                data_dict ["isbn"] = fields[1]
-                data_dict ["titulo"] = fields[2]
-                data_dict ["autor"] = fields[3]
-                data_dict ["categoria"] = fields[4]
-                data_dict ["ubicacion"] = fields[5]
+                data_dict ["isbn"] = fields[0]
+                data_dict ["titulo"] = fields[1]
+                data_dict ["autor"] = fields[2]
+                data_dict ["categoria"] = fields[3]
+                data_dict ["ubicacion"] = fields[4]
+                data_dict ["ejemplares_totales"] = fields[5]
                 data_dict ["ejemplares_disponibles"] = fields[6]
-                data_dict ["descripcion"] = fields[8]
+                data_dict ["ejemplares_prestados"] = fields[7]
+                data_dict ["ejemplares_reservados"] = fields[8]
+                data_dict ["descripcion"] = fields[9]
 
                 try:
                     form = LibroForm(data_dict)

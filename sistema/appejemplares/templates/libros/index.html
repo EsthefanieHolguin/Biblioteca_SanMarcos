@@ -73,6 +73,25 @@
                 </tbody>
             </table>
         </div>
+
+        <!-- Paginación -->
+        <div class="pagination">
+            <span class="step-links">
+                {% if libros.has_previous %}
+                    <a href="?page=1">&laquo; primera</a>
+                    <a href="?page={{ libros.previous_page_number }}">anterior</a>
+                {% endif %}
+
+                <span class="current">
+                    Página {{ libros.number }} de {{ libros.paginator.num_pages }}.
+                </span>
+
+                {% if libros.has_next %}
+                    <a href="?page={{ libros.next_page_number }}">siguiente</a>
+                    <a href="?page={{ libros.paginator.num_pages }}">última &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
         
     </div>
     <div class="card-footer text-muted">
