@@ -3,8 +3,6 @@ from django.http import HttpResponse
 from django.db.models import Q
 from .models import Libro
 from .forms import LibroForm
-from appprestamos.models import Prestamo
-from appprestamos.forms import PrestamoForm
 
 # Acá creamos las funciones para acceder a las vistas HTML
 

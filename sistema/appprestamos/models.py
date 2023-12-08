@@ -7,9 +7,9 @@ from appusuarios.models import Usuario
 class Prestamo(models.Model):
     
     class EstadoPrestamo(models.TextChoices):
-        VIGENTE = '0', _('Vigente')
-        FINALIZADO = '1', _('Finalizado')
-        ATRASADO = '2', _('Devolución Atrasada')
+        VIGENTE = 'Vigente', _('0')
+        FINALIZADO = 'Finalizado', _('1')
+        ATRASADO = 'Devolución Atrasada', _('2')
 
     id_prestamo = models.AutoField(primary_key=True)
     isbn = models.ForeignKey(Libro, on_delete=models.CASCADE,null=False,blank=False)
@@ -18,7 +18,7 @@ class Prestamo(models.Model):
     fecha_devolucion_calculada = models.DateTimeField(null=True,blank=True)
     fecha_devolucion_real = models.DateTimeField(null=True,blank=True)
     flg_estado_prestamo = models.CharField(
-        max_length=10,
+        max_length=19,
         choices=EstadoPrestamo.choices,
         default=EstadoPrestamo.VIGENTE,
     ) #0=Préstamo Vigente, 1=Préstamo Finalizado 2=Devolución Atrasada 
