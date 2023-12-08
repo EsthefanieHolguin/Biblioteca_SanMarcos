@@ -60,8 +60,8 @@
                         <td>{{ libro.ubicacion }}</td>
                         <td>{{ libro.ejemplares_disponibles }}</td>
 
-                        <td> <a name="" id="" class="btn btn-info" href="{% url 'editar' libro.id %}" role="button">Editar</a>  
-                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminar' libro.id %}" role="button">Borrar</a></td>
+                        <td> <a name="" id="" class="btn btn-info" href="{% url 'editar' libro.isbn %}" role="button">Editar</a>  
+                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminar' libro.isbn %}" role="button">Borrar</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

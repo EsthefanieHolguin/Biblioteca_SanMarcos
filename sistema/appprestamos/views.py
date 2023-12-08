@@ -25,15 +25,15 @@ def nuevo_prestamo(request):
         return redirect('prestamos')
     return render(request, 'prestamos/nuevo_prestamo.html', {'formulario': formulario})
 
-def editar_prestamo(request,id):
-    prestamo = prestamo.objects.get(id=id)
+def editar_prestamo(request,id_prestamo):
+    prestamo = prestamo.objects.get(id_prestamo=id_prestamo)
     formulario = PrestamoForm(request.POST or None, request.FILES or None, instance=prestamo)
     if formulario.is_valid() and request.POST:
         formulario.save()
         return redirect('prestamos')
     return render(request, 'prestamos/editar_prestamo.html', {'formulario':formulario})
 
-def eliminar_prestamo(request, id):
-    prestamo = Prestamo.objects.get(id=id)
+def eliminar_prestamo(request, id_prestamo):
+    prestamo = Prestamo.objects.get(id_prestamo=id_prestamo)
     prestamo.delete()
     return redirect('prestamos')

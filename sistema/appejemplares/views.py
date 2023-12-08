@@ -3,8 +3,8 @@ from django.http import HttpResponse
 from django.db.models import Q
 from .models import Libro
 from .forms import LibroForm
-from appprestamos2.models import Prestamo
-from appprestamos2.forms import PrestamoForm
+from appprestamos.models import Prestamo
+from appprestamos.forms import PrestamoForm
 
 # Acá creamos las funciones para acceder a las vistas HTML
 
@@ -34,16 +34,17 @@ def crear(request):
         formulario.save()
         return redirect('libros')
     return render(request, 'libros/crear.html', {'formulario': formulario})
-def editar(request,id):
-    libro = Libro.objects.get(id=id)
+
+def editar(request,isbn):
+    libro = Libro.objects.get(isbn=isbn)
     formulario = LibroForm(request.POST or None, request.FILES or None, instance=libro)
     if formulario.is_valid() and request.POST:
         formulario.save()
         return redirect('libros')
     return render(request, 'libros/editar.html', {'formulario':formulario})
 
-def eliminar(request, id):
-    libro = Libro.objects.get(id=id)
+def eliminar(request, isbn):
+    libro = Libro.objects.get(isbn=isbn)
     libro.delete()
     return redirect('libros')
 

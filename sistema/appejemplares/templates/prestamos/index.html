@@ -38,9 +38,13 @@
                 <thead>
                     <tr> <!--Cabeceras de la tabla-->
                         <th scope="col">ID Préstamo</th>
+                        <th scope="col">Isbn</th>
+                        <th scope="col">Rut Usuario</th>
                         <th scope="col">Fecha Préstamo</th>
-                        <th scope="col">ID Libro</th>
-                        <th scope="col">Id Usuario</th>
+                        <th scope="col">Fecha 
+                        Devolucion Calculada</th>
+                        <th scope="col">Fecha Devolucion Real</th>
+                        <th scope="col">Estado</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
@@ -48,10 +52,13 @@
                     {% for prestamo in prestamos %}
                     <tr class="">
                         <td>{{ prestamo.id_prestamo }}</td>
+                        <td>{{ prestamo.isbn }}</td>
+                        <td>{{ prestamo.rut_usuario }}</td>
                         <td>{{ prestamo.fecha_prestamo }}</td>
-                        <td>{{ librprestamoo.id_libro }}</td>
-                        <td>{{ prestamo.id_usuario }}</td>
-                        <td> <a name="" id="" class="btn btn-info" href="{#% url 'editar' libro.id %#}" role="button">Prestamo</a> </td>
+                        <td>{{ prestamo.fecha_devolucion_calculada }}</td>
+                        <td>{{ prestamo.fecha_devolucion_real }}</td>
+                        <td>{{ prestamo.flg_estado_prestamo }}</td>
+                        <td> <a name="" id="" class="btn btn-info" href="{#% url 'editar' libro.isbn %#}" role="button">Prestamo</a> </td>
                     </tr>
                     {% endfor %}
                 </tbody>

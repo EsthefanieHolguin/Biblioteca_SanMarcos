@@ -14,7 +14,7 @@ def usuarios(request):  #Listar usuarios y barra busqueda
     #querys con la busqueda, que se obtiene del input name del index.html
     if busqueda:
         usuarios = Usuario.objects.filter(
-            Q(rut = busqueda) |
+            Q(rut_usuario = busqueda) |
             Q(nombre_usuario__icontains = busqueda) |
             Q(email__icontains = busqueda)
         ).distinct()
@@ -27,16 +27,16 @@ def crear(request):
         formulario.save()
         return redirect('usuarios')
     return render(request, 'usuarios/crear.html', {'formulario': formulario})
-def editar(request,id):
-    usuario = Usuario.objects.get(id_usuario=id)
+def editar(request,rut_usuario):
+    usuario = Usuario.objects.get(rut_usuario=rut_usuario)
     formulario = UsuarioForm(request.POST or None, request.FILES or None, instance=usuario)
     if formulario.is_valid() and request.POST:
         formulario.save()
         return redirect('usuarios')
     return render(request, 'usuarios/editar.html', {'formulario':formulario})
 
-def eliminar(request, id):
-    usuario = Usuario.objects.get(id_usuario=id)
+def eliminar(request, rut_usuario):
+    usuario = Usuario.objects.get(rut_usuario=rut_usuario)
     usuario.delete()
     return redirect('usuarios')
 
@@ -52,10 +52,10 @@ def subir_usuarios(request):
             fields = line.split(",")
             if len(fields)>1:
                 data_dict = {}
-                data_dict ["rut"] = fields[1]
-                data_dict ["nombre_usuario"] = fields[2]
-                data_dict ["email"] = fields[3]
-                data_dict ["curso"] = fields[4]
+                data_dict ["rut_usuario"] = fields[0]
+                data_dict ["nombre_usuario"] = fields[1]
+                data_dict ["email"] = fields[2]
+                data_dict ["curso"] = fields[3]
 
                 try:
                     form = UsuarioForm(data_dict)

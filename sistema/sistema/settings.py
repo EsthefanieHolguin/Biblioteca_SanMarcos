@@ -40,8 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'appejemplares',
     'appusuarios',
-    'appreservas',
-    'appprestamos2'
+    'appprestamos'
 ]
 
 MIDDLEWARE = [
@@ -82,10 +81,10 @@ WSGI_APPLICATION = 'sistema.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'biblioteca',
+        'NAME': 'bibliotecasma',
         'USER': 'adminsma',
         'PASSWORD': 'sma12345',
-        'HOST': 'bibliotecasma.cakqffkgxbjs.sa-east-1.rds.amazonaws.com',
+        'HOST': 'bibliotecas.cakqffkgxbjs.sa-east-1.rds.amazonaws.com',
         'PORT': '3306',
         
     }

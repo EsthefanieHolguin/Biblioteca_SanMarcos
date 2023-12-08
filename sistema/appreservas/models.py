@@ -8,8 +8,8 @@ class Reserva(models.Model):
 
     id_reserva = models.AutoField(primary_key=True)
     fecha_reserva = models.DateField(auto_now_add=True)
-    id_libro = models.ForeignKey(Libro, on_delete=models.CASCADE,null=False,blank=False)
-    id_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE,null=False,blank=False)
+    isbn = models.ForeignKey(Libro, on_delete=models.CASCADE,null=False,blank=False)
+    rut = models.ForeignKey(Usuario, on_delete=models.CASCADE,null=False,blank=False)
 
 
     def __str__(self):

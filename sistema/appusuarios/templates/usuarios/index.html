@@ -50,13 +50,13 @@
                     {% for usuario in usuarios %}
 
                     <tr class="">
-                        <td>{{ usuario.rut }}</td>
+                        <td>{{ usuario.rut_usuario }}</td>
                         <td>{{ usuario.nombre_usuario }}</td>
                         <td>{{ usuario.email }}</td>
                         <td>{{ usuario.curso }}</td>
 
-                        <td> <a name="" id="" class="btn btn-info" href="{% url 'editar_usuario' usuario.id_usuario %}" role="button">Editar</a>  
-                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminar_usuario' usuario.id_usuario %}" role="button">Borrar</a></td>
+                        <td> <a name="" id="" class="btn btn-info" href="{% url 'editar_usuario' usuario.rut_usuario %}" role="button">Editar</a>  
+                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminar_usuario' usuario.rut_usuario %}" role="button">Borrar</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

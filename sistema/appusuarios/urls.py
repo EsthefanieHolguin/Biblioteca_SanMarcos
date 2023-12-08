@@ -12,8 +12,8 @@ urlpatterns = [
     path('usuarios', views.usuarios, name='usuarios'),
     path('usuarios/crear', views.crear, name='crear_usuario'),
     path('usuarios/editar', views.editar, name='editar_usuario'),
-    path('usuarios/eliminar/<int:id>', views.eliminar, name='eliminar_usuario'),
-    path('usuarios/editar/<int:id>', views.editar, name='editar_usuario'),
+    path('usuarios/eliminar/<int:rut_usuario>', views.eliminar, name='eliminar_usuario'),
+    path('usuarios/editar/<int:rut_usuario>', views.editar, name='editar_usuario'),
     path('usuarios/upload', views.subir_usuarios, name='subir_usuarios'),
 
 
