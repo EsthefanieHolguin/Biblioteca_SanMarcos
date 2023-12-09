@@ -49,9 +49,10 @@
                         <th scope="col">Autor</th>
                         <th scope="col">Categoría</th>
                         <th scope="col">Ubicación</th>
-                        <th scope="col">Ejemplares</th>
-                        <!--<th scope="col">Imagen</th>-->
-                        <th scope="col">Acciones</th>
+                        <th scope="col">Ejemplares Totales</th>
+                        <th scope="col">Ejemplares Disponibles</th>
+                        <th scope="col">Ejemplares Prestados</th>
+                       <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -64,8 +65,9 @@
                         <td>{{ libro.autor }}</td>
                         <td>{{ libro.categoria }}</td>
                         <td>{{ libro.ubicacion }}</td>
+                        <td>{{ libro.ejemplares_totales }}</td>
                         <td>{{ libro.ejemplares_disponibles }}</td>
-
+                        <td>{{ libro.ejemplares_prestados }}</td>
                         <td> <a name="" id="" class="btn btn-info" href="{% url 'editar' libro.isbn %}" role="button">Editar</a>  
                             <a name="" id="" class="btn btn-danger" href="{% url 'eliminar' libro.isbn %}" role="button">Borrar</a></td>
                     </tr>
