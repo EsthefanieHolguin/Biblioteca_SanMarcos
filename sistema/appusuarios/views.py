@@ -15,6 +15,9 @@ def usuarios(request):  #Listar usuarios y barra busqueda
     busqueda = request.GET.get("buscar_usuario")
     usuarios = Usuario.objects.all()
 
+    # Ordena los usuarios por nombre
+    usuarios = usuarios.order_by('nombre_usuario')
+
     #querys con la busqueda, que se obtiene del input name del index.html
     if busqueda:
         usuarios = Usuario.objects.filter(

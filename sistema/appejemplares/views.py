@@ -35,6 +35,9 @@ def libros(request):  #Listar libros y barra busqueda para bibliotecario
     busqueda = request.GET.get("buscar")
     libros = Libro.objects.all()
 
+    # Ordena los libros por título
+    libros = libros.order_by('titulo')
+
     #querys con la busqueda, que se obtiene del input name del index.html
     if busqueda:
         libros = Libro.objects.filter(
