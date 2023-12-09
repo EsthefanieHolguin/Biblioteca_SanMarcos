@@ -23,7 +23,7 @@ def prestamos(request):
         prestamos = Prestamo.objects.filter( 
             Q(isbn = busqueda) |
             Q(rut_usuario = busqueda) |
-            Q(flg_estado_prestamo__icontains = busqueda) 
+            Q(estado_prestamo__icontains = busqueda) 
     ) 
     
     return render(request, 'prestamos/index.html', {'prestamos': prestamos})
@@ -53,7 +53,6 @@ def editar_prestamo(request, id_prestamo):
             'fecha_prestamo': fecha_prestamo,
         }
     )
-
     # Deshabilitar la edición de los campos
     formulario.fields['isbn'].widget.attrs['disabled'] = True
     formulario.fields['rut_usuario'].widget.attrs['disabled'] = True

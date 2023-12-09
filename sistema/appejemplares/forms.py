@@ -14,3 +14,4 @@ class LibroForm(forms.ModelForm):
     ]
         
     categoria = forms.ChoiceField(choices=CATEGORIAS_CHOICES, widget=forms.Select(attrs={'class': 'form-control'}))
+    

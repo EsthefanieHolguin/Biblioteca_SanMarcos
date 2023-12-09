@@ -19,7 +19,7 @@ class Libro(models.Model):
     categoria = models.CharField(max_length=50, verbose_name='Categoría', choices=CATEGORIAS_CHOICES)
     ubicacion = models.CharField(max_length=20, verbose_name='Ubicación', null=False, blank=False)
     ejemplares_totales = models.IntegerField(default=0)
-    ejemplares_disponibles = models.IntegerField(default=0)
+    ejemplares_disponibles = models.IntegerField(default=ejemplares_totales)
     ejemplares_prestados = models.IntegerField(default=0)
     ejemplares_reservados = models.IntegerField(default=0)
     descripcion = models.TextField(verbose_name='Descripción', null=True, blank=True)
@@ -48,7 +48,7 @@ def actualizar_ejemplares_libro(sender, instance, **kwargs):
         libro.ejemplares_prestados += 1
     else:
         # Verificar si se está finalizando un préstamo
-        if instance.flg_estado_prestamo == 'finalizado':
+        if instance.estado_prestamo == 'finalizado':
             # Sumar 1 al número de ejemplares disponibles
             libro.ejemplares_disponibles += 1
             # Restar 1 al número de ejemplares prestados

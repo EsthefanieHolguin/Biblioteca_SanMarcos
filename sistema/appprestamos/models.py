@@ -23,13 +23,12 @@ def fecha_devolucion():
 
     return fecha_cal_formateada
 class Prestamo(models.Model):
+    ESTADOS_CHOICE =[
+    ('vigente','Préstamo Vigente'),
+    ('finalizado','Préstamo Finalizado'),
+    ('atrasado','Devolución Atrasada'),
+]
     
-    ESTADOS_PRESTAMOS =(
-        ('vigente','Préstamo Vigente'),
-        ('finalizado','Préstamo Finalizado'),
-        ('atrasado','Devolución Atrasada')
-    )
-
     id_prestamo = models.AutoField(primary_key=True)
     isbn = models.ForeignKey(Libro, on_delete=models.CASCADE,null=False,blank=False)
     rut_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE,null=False,blank=False)
@@ -37,7 +36,7 @@ class Prestamo(models.Model):
     fecha_devolucion_calculada = models.DateField(null=False,blank=False, default=fecha_devolucion)
     fecha_devolucion_real = models.DateField(null=True,blank=True, default=''
                                              )
-    flg_estado_prestamo = models.CharField(max_length=50,choices=ESTADOS_PRESTAMOS,default='vigente') #0=Préstamo Vigente, 1=Préstamo Finalizado 2=Devolución Atrasada 
+    estado_prestamo = models.CharField(max_length=50,choices=ESTADOS_CHOICE,default='vigente') #0=Préstamo Vigente, 1=Préstamo Finalizado 2=Devolución Atrasada 
 
     def __str__(self):
         fila = "ID Préstamo: " + self.id_prestamo + "Isbn: " + self.isbn + "Rut Usuario: " + self.rut_usuario + "Fecha Préstamo: " + self.fecha_prestamo + "Fecha Devolución: " + self.fecha_prestamo + "Fecha Préstamo: " + self.fecha_prestamo 
@@ -50,7 +49,7 @@ class Prestamo(models.Model):
 @receiver(pre_save, sender=Prestamo)
 def actualizar_fecha_devolucion_real(sender, instance, **kwargs):
     # Verificar si el estado del préstamo es "finalizado"
-    if instance.flg_estado_prestamo == 'finalizado':
+    if instance.estado_prestamo == 'finalizado':
         # Actualizar la fecha_devolucion_real con la fecha actual
         instance.fecha_devolucion_real = date.today()
     else:
