@@ -27,6 +27,9 @@ def catalogo(request):  #Listar libros y barra busqueda en el catalogo (para el 
             Q(isbn = busqueda) |
             Q(categoria__icontains = busqueda)
         ).distinct()
+    return render(request, 'paginas/catalogo.html', {'libros': libros})
+
+
 
 @login_required
 def libros(request):  #Listar libros y barra busqueda para bibliotecario
