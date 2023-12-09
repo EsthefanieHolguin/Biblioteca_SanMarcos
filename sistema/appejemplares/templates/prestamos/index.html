@@ -29,7 +29,7 @@
         <div class="table-responsive">
             <table class="table table-primary">
                 <thead>
-                    <tr> <!--Cabeceras de la tabla-->
+                    <tr class="centrado"> <!--Cabeceras de la tabla-->
                         <th scope="col">ID Préstamo</th>
                         <th scope="col">Isbn</th>
                         <th scope="col">Rut Usuario</th>
@@ -43,7 +43,7 @@
                 </thead>
                 <tbody>
                     {% for prestamo in prestamos %}
-                    <tr class="">
+                    <tr class="centrado">
                         <td>{{ prestamo.id_prestamo }}</td>
                         <td>{{ prestamo.isbn }}</td>
                         <td>{{ prestamo.rut_usuario }}</td>
@@ -52,17 +52,20 @@
                         <td>{{ prestamo.fecha_devolucion_real }}</td>
                         <td>{{ prestamo.estado_prestamo }}</td>
                         <td> <a name="" id="" class="btn btn-info" href="{% url 'editar_prestamo' prestamo.id_prestamo %}" role="button">Editar</a> 
-                        <a name="" id="" class="btn btn-danger" href="{% url 'eliminar_prestamo' prestamo.id_prestamo %}" role="button">Borrar</a></td>
+                        <a name="" id="" class="btn btn-danger" href="{% url 'eliminar_prestamo' prestamo.id_prestamo %}" role="button" onclick="return confirmarEliminacion()">Borrar</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
-        
-    </div>
     <div class="card-footer text-muted">
         
     </div>
 </div>
 
+  <script>
+    function confirmarEliminacion() {
+      return confirm("¿Estás seguro de que quieres eliminar el ejemplar?");
+    }
+  </script>
 {% endblock %}

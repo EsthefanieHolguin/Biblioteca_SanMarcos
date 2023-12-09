@@ -25,6 +25,17 @@
       <div class="col-12 help-text">{{ campo.errors }}</div>
   {% endfor %}
 
-  <input name="" id="" class="btn btn-success" type="submit" value="Enviar información">
-  <a name="" id="" class="btn btn-primary" href="{% url 'libros' %}" role="button">Cancelar</a>
-</form>
+    <button type="submit" class="btn btn-primary" onclick="return confirmarCambios()">Guardar</button>
+    <a href="{% url 'libros' %}" class="btn btn-danger" onclick="return confirmarCancelacion()">Cancelar</a>
+  </form>
+
+  
+  <script>
+    function confirmarCambios() {
+      return confirm("¿Estás seguro de que quieres guardar los cambios?");
+    }
+
+    function confirmarCancelacion() {
+      return confirm("¿Estás seguro de que quieres cancelar los cambios?");
+    }
+  </script>

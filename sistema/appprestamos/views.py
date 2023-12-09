@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.db.models import Q
@@ -24,9 +25,21 @@ def prestamos(request):
             Q(isbn = busqueda) |
             Q(rut_usuario = busqueda) |
             Q(estado_prestamo__icontains = busqueda) 
-    ) 
-    
-    return render(request, 'prestamos/index.html', {'prestamos': prestamos})
+        )
+ # Configuración de la paginación
+    paginator = Paginator(prestamos, 11)  # Muestra 10 libros por página
+    page = request.GET.get('page')
+
+    try:
+        prestamos_paginados = paginator.page(page)
+    except PageNotAnInteger:
+        # Si la página no es un número entero, entrega la primera página.
+        prestamos_paginados = paginator.page(1)
+    except EmptyPage:
+        # Si la página está fuera de rango (por encima de la última), entrega la última página.
+        prestamos_paginados = paginator.page(paginator.num_pages)
+
+    return render(request, 'prestamos/index.html', {'prestamos': prestamos_paginados})
 
 def nuevo_prestamo(request):
     formulario = PrestamoForm(request.POST or None, request.FILES or None)
@@ -53,11 +66,6 @@ def editar_prestamo(request, id_prestamo):
             'fecha_prestamo': fecha_prestamo,
         }
     )
-    # Deshabilitar la edición de los campos
-    formulario.fields['isbn'].widget.attrs['disabled'] = True
-    formulario.fields['rut_usuario'].widget.attrs['disabled'] = True
-    formulario.fields['fecha_prestamo'].widget.attrs['disabled'] = True
-
 
     if formulario.is_valid() and request.POST:
         formulario.save()

@@ -43,15 +43,15 @@
         <div class="table-responsive">
             <table class="table table-primary">
                 <thead>
-                    <tr> <!--Cabeceras de la tabla-->
+                    <tr class="centrado">  <!--Cabeceras de la tabla-->
                         <th scope="col">ISBN</th>
                         <th scope="col">Titulo</th>
                         <th scope="col">Autor</th>
                         <th scope="col">Categoría</th>
                         <th scope="col">Ubicación</th>
-                        <th scope="col">Ejemplares Totales</th>
-                        <th scope="col">Ejemplares Disponibles</th>
-                        <th scope="col">Ejemplares Prestados</th>
+                        <th scope="col">Ejemplares  <br> Totales</th>
+                        <th scope="col">Ejemplares  <br> Disponibles</th>
+                        <th scope="col">Ejemplares  <br> Prestados</th>
                        <th scope="col">Acciones</th>
                     </tr>
                 </thead>
@@ -59,7 +59,7 @@
 
                     {% for libro in libros %}
 
-                    <tr class="">
+                    <tr class="centrado">
                         <td>{{ libro.isbn }}</td>
                         <td>{{ libro.titulo }}</td>
                         <td>{{ libro.autor }}</td>
@@ -69,7 +69,7 @@
                         <td>{{ libro.ejemplares_disponibles }}</td>
                         <td>{{ libro.ejemplares_prestados }}</td>
                         <td> <a name="" id="" class="btn btn-info" href="{% url 'editar' libro.isbn %}" role="button">Editar</a>  
-                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminar' libro.isbn %}" role="button">Borrar</a></td>
+                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminar' libro.isbn %}" role="button" onclick="return confirmarEliminacion()">Borrar</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -100,5 +100,11 @@
         
     </div>
 </div>
+
+  <script>
+    function confirmarEliminacion() {
+      return confirm("¿Estás seguro de que quieres eliminar el ejemplar?");
+    }
+  </script>
 
 {% endblock %}

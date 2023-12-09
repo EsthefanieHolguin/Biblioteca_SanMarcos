@@ -62,7 +62,7 @@
                         <td>{{ usuario.curso }}</td>
 
                         <td> <a name="" id="" class="btn btn-info" href="{% url 'editar_usuario' usuario.rut_usuario %}" role="button">Editar</a>  
-                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminar_usuario' usuario.rut_usuario %}" role="button">Borrar</a></td>
+                            <a name="" id="" class="btn btn-danger" href="{% url 'eliminar_usuario' usuario.rut_usuario %}" role="button" onclick="return confirmarEliminacion()">Borrar</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -93,5 +93,11 @@
         
     </div>
 </div>
+
+  <script>
+    function confirmarEliminacion() {
+      return confirm("¿Estás seguro de que quieres eliminar el ejemplar?");
+    }
+  </script>
 
 {% endblock %}

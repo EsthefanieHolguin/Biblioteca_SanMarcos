@@ -22,12 +22,12 @@
         </div>
     </div>
     <div class="card-body">
-        <h4 class="card-title">Libros</h4>
+        <h4 class="card-title">Catálogo</h4>
         
         <div class="table-responsive">
             <table class="table table-primary">
                 <thead>
-                    <tr> <!--Cabeceras de la tabla-->
+                    <tr class="centrado"> <!--Cabeceras de la tabla-->
                         <th scope="col">ISBN</th>
                         <th scope="col">Titulo</th>
                         <th scope="col">Autor</th>
@@ -40,7 +40,7 @@
 
                     {% for libro in libros %}
 
-                    <tr class="">
+                    <tr class="centrado">
                         <td>{{ libro.isbn }}</td>
                         <td>{{ libro.titulo }}</td>
                         <td>{{ libro.autor }}</td>
@@ -52,7 +52,6 @@
                 </tbody>
             </table>
         </div>
-        
     </div>
     <div class="card-footer text-muted">
         
