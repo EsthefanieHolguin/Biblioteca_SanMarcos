@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="es" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>appprestamos.forms &#8212; documentación de Biblioteca_SanMarcosApostol - 1.0</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
+    <script src="../../_static/documentation_options.js?v=4936afed"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/translations.js?v=efdbd0b9"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Código fuente para appprestamos.forms</h1><div class="highlight"><pre>
+<span></span><span class="c1">#encoding:utf-8</span>
+<span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Prestamo</span>
+
+
+<div class="viewcode-block" id="PrestamoForm">
+<a class="viewcode-back" href="../../modules/appprestamos.html#appprestamos.forms.PrestamoForm">[documentos]</a>
+<span class="k">class</span> <span class="nc">PrestamoForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Formulario para el modelo Prestamo.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        ESTADOS_CHOICE (list): Opciones para el campo &#39;estado_prestamo&#39;.</span>
+
+<span class="sd">    Fields:</span>
+<span class="sd">        estado_prestamo (ChoiceField): Campo para seleccionar el estado del préstamo.</span>
+<span class="sd">            - choices: Opciones definidas en ESTADOS_CHOICE.</span>
+<span class="sd">            - widget: Selector de opciones con clase &#39;form-control&#39;.</span>
+<span class="sd">        fecha_devolucion_real (DateField): Campo para ingresar la fecha real de devolución.</span>
+<span class="sd">            - widget: Campo de entrada de fecha con tipo &#39;date&#39;.</span>
+
+<span class="sd">    Methods:</span>
+<span class="sd">        __init__: Método de inicialización para personalizar la creación del formulario.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+<div class="viewcode-block" id="PrestamoForm.Meta">
+<a class="viewcode-back" href="../../modules/appprestamos.html#appprestamos.forms.PrestamoForm.Meta">[documentos]</a>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Prestamo</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="s1">&#39;__all__&#39;</span></div>
+
+
+    <span class="n">ESTADOS_CHOICE</span> <span class="o">=</span><span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;vigente&#39;</span><span class="p">,</span><span class="s1">&#39;Préstamo Vigente&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;finalizado&#39;</span><span class="p">,</span><span class="s1">&#39;Préstamo Finalizado&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;atrasado&#39;</span><span class="p">,</span><span class="s1">&#39;Devolución Atrasada&#39;</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="n">widgets</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;estado_prestamo&#39;</span><span class="p">:</span> <span class="n">forms</span><span class="o">.</span><span class="n">Select</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;regDropDown&#39;</span><span class="p">}),</span>
+        <span class="s1">&#39;fecha_devolucion_real&#39;</span><span class="p">:</span> <span class="n">forms</span><span class="o">.</span><span class="n">DateInput</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;date&#39;</span><span class="p">}),</span>
+    <span class="p">}</span>
+            
+    <span class="n">estado_prestamo</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ChoiceField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">ESTADOS_CHOICE</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">Select</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">}))</span></div>
+
+
+
+
+
+<span class="sd">&quot;&quot;&quot; EVALUAR SI SE UTILIZA ESTE METODO A FUTURO</span>
+
+<span class="sd">    def __init__(self, *args, **kwargs):</span>
+<span class="sd">    </span>
+<span class="sd">        &quot;&quot;</span>
+<span class="sd">        Método de inicialización para personalizar la creación del formulario.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            *args: Argumentos posicionales.</span>
+<span class="sd">            **kwargs: Argumentos de palabras clave.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+<span class="sd">        &quot;&quot;</span>
+
+<span class="sd">        super().__init__(*args, **kwargs)</span>
+
+<span class="sd">        # Personalizar atributos o comportamientos adicionales si es necesario</span>
+<span class="sd">        # ...</span>
+
+<span class="sd">        # Ejemplo: Desactivar el campo fecha_devolucion_real si el estado no es &#39;finalizado&#39;</span>
+<span class="sd">        if &#39;instance&#39; in kwargs and kwargs[&#39;instance&#39;]:</span>
+<span class="sd">            estado_actual = kwargs[&#39;instance&#39;].estado_prestamo</span>
+<span class="sd">            if estado_actual != &#39;finalizado&#39;:</span>
+<span class="sd">                self.fields[&#39;fecha_devolucion_real&#39;].widget.attrs[&#39;disabled&#39;] = True</span>
+<span class="sd">                self.fields[&#39;fecha_devolucion_real&#39;].required = False</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+   
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Biblioteca_SanMarcosApostol</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navegación</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Código de módulo</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Búsqueda rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Diego Hernandez - Marialejandra Holguin - Catalina Fabres.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

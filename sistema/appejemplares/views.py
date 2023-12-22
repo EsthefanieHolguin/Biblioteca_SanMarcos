@@ -10,11 +10,43 @@ from .forms import LibroForm
 # Acá creamos las funciones para acceder a las vistas HTML
 
 def inicio(request):
+    """
+    Renderiza la página de inicio.
+
+    Args:
+        request (HttpRequest): La solicitud HTTP recibida.
+
+    Returns:
+        HttpResponse: La respuesta HTTP renderizada para la página de inicio.
+    """
+
     return render(request, 'paginas/inicio.html')
+
 def nosotros(request):
+    """
+    Renderiza la página "Nosotros".
+
+    Args:
+        request (HttpRequest): La solicitud HTTP recibida.
+
+    Returns:
+        HttpResponse: La respuesta HTTP renderizada para la página "Nosotros".
+    """
+
     return render(request, 'paginas/nosotros.html')
 
-def catalogo(request):  #Listar libros y barra busqueda en el catalogo (para el usuario que reserve)
+def catalogo(request):
+    """
+    Lista libros y muestra una barra de búsqueda en el catálogo.
+    Para usuarios que reservan libros.
+
+    Args:
+        request (HttpRequest): La solicitud HTTP recibida.
+
+    Returns:
+        HttpResponse: La respuesta HTTP renderizada para la página del catálogo.
+    """
+
     busqueda = request.GET.get("buscar")
     libros = Libro.objects.all()
 
@@ -31,7 +63,18 @@ def catalogo(request):  #Listar libros y barra busqueda en el catalogo (para el 
 
 
 @login_required
-def libros(request):  #Listar libros y barra busqueda para bibliotecario
+def libros(request): 
+    """
+    Lista libros y muestra una barra de búsqueda para bibliotecarios.
+    También realiza la paginación de los resultados.
+
+    Args:
+        request (HttpRequest): La solicitud HTTP recibida.
+
+    Returns:
+        HttpResponse: La respuesta HTTP renderizada para la página de listado de libros.
+    """
+
     busqueda = request.GET.get("buscar")
     libros = Libro.objects.all()
 
@@ -63,6 +106,16 @@ def libros(request):  #Listar libros y barra busqueda para bibliotecario
     return render(request, 'libros/index.html', {'libros': libros_paginados})
 
 def crear(request):
+    """
+    Crea un nuevo libro y redirige a la página de listado de libros.
+
+    Args:
+        request (HttpRequest): La solicitud HTTP recibida.
+
+    Returns:
+        HttpResponse: La respuesta HTTP redirigida a la página de listado de libros.
+    """
+
     formulario = LibroForm(request.POST or None, request.FILES or None)
     if formulario.is_valid():
         formulario.save()
@@ -70,6 +123,17 @@ def crear(request):
     return render(request, 'libros/crear.html', {'formulario': formulario})
 
 def editar(request,isbn):
+    """
+    Edita un libro existente y redirige a la página de listado de libros.
+
+    Args:
+        request (HttpRequest): La solicitud HTTP recibida.
+        isbn (str): El ISBN del libro a editar.
+
+    Returns:
+        HttpResponse: La respuesta HTTP redirigida a la página de listado de libros.
+    """
+
     libro = Libro.objects.get(isbn=isbn)
     formulario = LibroForm(request.POST or None, request.FILES or None, instance=libro)
     if formulario.is_valid() and request.POST:
@@ -78,11 +142,32 @@ def editar(request,isbn):
     return render(request, 'libros/editar.html', {'formulario':formulario})
 
 def eliminar(request, isbn):
+    """
+    Elimina un libro existente y redirige a la página de listado de libros.
+
+    Args:
+        request (HttpRequest): La solicitud HTTP recibida.
+        isbn (str): El ISBN del libro a eliminar.
+
+    Returns:
+        HttpResponse: La respuesta HTTP redirigida a la página de listado de libros.
+    """
+
     libro = Libro.objects.get(isbn=isbn)
     libro.delete()
     return redirect('libros')
 
 def subir_csv(request):
+    """
+    Sube un archivo CSV con información de libros y actualiza la base de datos.
+
+    Args:
+        request (HttpRequest): La solicitud HTTP recibida.
+
+    Returns:
+        HttpResponse: La respuesta HTTP redirigida a la página de listado de libros.
+    """
+
     template_name = "libros/upload_csv.html"
 
     if request.method == "POST":
@@ -128,5 +213,15 @@ def subir_csv(request):
     return render(request,template_name,{})
 
 def exit(request):
+    """
+    Cierra la sesión del usuario y redirige a la página de inicio.
+
+    Args:
+        request (HttpRequest): La solicitud HTTP recibida.
+
+    Returns:
+        HttpResponse: La respuesta HTTP redirigida a la página de inicio.
+    """
+    
     logout(request)
     return redirect('inicio')

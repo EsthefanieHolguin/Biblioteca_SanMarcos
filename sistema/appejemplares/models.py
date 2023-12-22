@@ -6,6 +6,28 @@ from django.dispatch import receiver
 
 
 class Libro(models.Model):
+    """
+    Modelo que representa un libro en la biblioteca.
+
+    Attributes:
+    - isbn (str): Número de identificación único del libro.
+    - titulo (str): Título del libro.
+    - autor (str): Autor del libro.
+    - categoria (str): Categoría del libro (e.g., Novelas, Suspenso).
+    - ubicacion (str): Ubicación física del libro en la biblioteca.
+    - ejemplares_totales (int): Número total de ejemplares del libro.
+    - ejemplares_disponibles (int): Número de ejemplares disponibles para préstamo.
+    - ejemplares_prestados (int): Número de ejemplares actualmente prestados.
+    - ejemplares_reservados (int): Número de ejemplares reservados.
+    - descripcion (str): Descripción del libro (opcional).
+
+    Methods:
+    - __str__: Representación en cadena del libro (devuelve el ISBN como identificador).
+    - is_upperclass: Verifica si la categoría del libro está en mayúsculas.
+    - delete: Sobrescribe el método de eliminación para realizar acciones personalizadas.
+
+    """
+
     CATEGORIAS_CHOICES = [
         ('novelas', 'Novelas'),
         ('suspenso', 'Suspenso'),
@@ -25,12 +47,26 @@ class Libro(models.Model):
     descripcion = models.TextField(verbose_name='Descripción', null=True, blank=True)
 
     def __str__(self):
+        """Representación en cadena del libro."""
+
         return self.isbn
 
     def is_upperclass(self):
+        """Verifica si la categoría del libro está en mayúsculas."""
+
         return self.categoria in (choice[0] for choice in self.CATEGORIAS_CHOICES)
 
     def delete(self, using=None, keep_parents=False):
+        """
+        Sobrescribe el método de eliminación para realizar acciones personalizadas.
+
+        En este caso, se podría agregar la eliminación de la imagen asociada al libro si se utiliza algún campo de imagen.
+
+        Args:
+        - using (str): Nombre de la base de datos.
+        - keep_parents (bool): Indica si se deben mantener las relaciones de clave externa.
+
+        """
 
         #self.imagen.storage.delete(self.imagen.name)
         super().delete()
@@ -38,6 +74,21 @@ class Libro(models.Model):
 from appprestamos.models import Prestamo 
 @receiver(pre_save, sender=Prestamo)
 def actualizar_ejemplares_libro(sender, instance, **kwargs):
+    """
+    Actualiza el número de ejemplares disponibles y prestados cuando se realiza un préstamo.
+
+    Este método se conecta a la señal pre_save de Prestamo para actualizar automáticamente
+    el número de ejemplares disponibles y prestados en el libro asociado cuando se realiza
+    un préstamo o se finaliza un préstamo.
+
+    Args:
+    - sender: Clase que envía la señal (Prestamo en este caso).
+    - instance: Instancia de Prestamo que activa la señal.
+    - **kwargs: Argumentos adicionales.
+
+    """
+    
+    # Obtener el libro asociado al préstamo
     libro = instance.isbn
 
     # Verificar si es un préstamo nuevo

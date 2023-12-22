@@ -11,7 +11,19 @@ from .forms import UsuarioForm
 
 # Create your views here.
 @login_required
-def usuarios(request):  #Listar usuarios y barra busqueda
+def usuarios(request): 
+    """
+    Vista para listar usuarios y realizar búsquedas.
+
+    Permite la paginación de usuarios y búsquedas por nombre, rut y email.
+
+    Args:
+        request (HttpRequest): La solicitud HTTP.
+
+    Returns:
+        HttpResponse: Respuesta HTTP que renderiza la lista de usuarios.
+    """
+
     busqueda = request.GET.get("buscar_usuario")
     usuarios = Usuario.objects.all()
 
@@ -43,12 +55,38 @@ def usuarios(request):  #Listar usuarios y barra busqueda
     return render(request, 'usuarios/index.html', {'usuarios': usuarios_paginados})
 
 def crear(request):
+    """
+    Vista para crear un nuevo usuario.
+
+    Permite el ingreso de información para crear un nuevo usuario.
+    
+    Args:
+        request (HttpRequest): La solicitud HTTP.
+
+    Returns:
+        HttpResponse: Respuesta HTTP que renderiza el formulario de creación de usuario.
+    """
+
     formulario = UsuarioForm(request.POST or None, request.FILES or None)
     if formulario.is_valid():
         formulario.save()
         return redirect('usuarios')
     return render(request, 'usuarios/crear.html', {'formulario': formulario})
+
 def editar(request,rut_usuario):
+    """
+    Vista para editar un usuario existente.
+
+    Permite modificar la información de un usuario existente.
+    
+    Args:
+        request (HttpRequest): La solicitud HTTP.
+        rut_usuario (str): El RUT del usuario a editar.
+
+    Returns:
+        HttpResponse: Respuesta HTTP que renderiza el formulario de edición de usuario.
+    """
+
     usuario = Usuario.objects.get(rut_usuario=rut_usuario)
     formulario = UsuarioForm(request.POST or None, request.FILES or None, instance=usuario)
     if formulario.is_valid() and request.POST:
@@ -57,11 +95,32 @@ def editar(request,rut_usuario):
     return render(request, 'usuarios/editar.html', {'formulario':formulario})
 
 def eliminar(request, rut_usuario):
+    """
+    Elimina un usuario existente.
+
+    Args:
+        request (HttpRequest): La solicitud HTTP.
+        rut_usuario (str): El RUT del usuario a eliminar.
+
+    Returns:
+        HttpResponse: Respuesta HTTP de redirección a la lista de usuarios.
+    """
+
     usuario = Usuario.objects.get(rut_usuario=rut_usuario)
     usuario.delete()
     return redirect('usuarios')
 
 def subir_usuarios(request):
+    """
+    Sube usuarios desde un archivo CSV.
+
+    Args:
+        request (HttpRequest): La solicitud HTTP.
+
+    Returns:
+        HttpResponse: Respuesta HTTP de redirección a la lista de usuarios.
+    """
+    
     template_name = "usuarios/upload_user.html"
 
     if request.method == "POST":

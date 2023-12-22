@@ -7,18 +7,18 @@ from django.contrib.staticfiles.urls import static
 from django.conf.urls.static import static
 
 
-#Acá el usuario va a poder entrar y acceder a la vista y se debe colocar la funcion definida en views.py en cada path
+# Definición de patrones de URL para las vistas en el archivo views.py
 urlpatterns = [
-    path('', views.inicio, name='inicio'), #Cuando el usuario acceda a la raiz (''), mostrará la vista 'inicio'
-    path('nosotros', views.nosotros, name='nosotros'), #creamos el acceso a la vista de nosotros con el acceso views.nosotros
-    path('libros', views.libros, name='libros'),
-    path('libros/crear', views.crear, name='crear'),
-    path('libros/editar', views.editar, name='editar'),
-    path('eliminar/<int:isbn>', views.eliminar, name='eliminar'),
-    path('libros/editar/<int:isbn>', views.editar, name='editar'),
-    path('csv/upload', views.subir_csv, name='subir_csv'),
-    path('catalogo', views.catalogo, name='catalogo'),
-    path('logout/', views.exit, name='exit'),
+    path('', views.inicio, name='inicio'), # Página de inicio
+    path('nosotros', views.nosotros, name='nosotros'), # Página "Nosotros"
+    path('libros', views.libros, name='libros'), # Vista para listar libros
+    path('libros/crear', views.crear, name='crear'), # Vista para crear un nuevo libro
+    path('libros/editar', views.editar, name='editar'), # Vista para editar libros (URL sin ISBN específico)
+    path('eliminar/<int:isbn>', views.eliminar, name='eliminar'), # Vista para eliminar un libro
+    path('libros/editar/<int:isbn>', views.editar, name='editar'), # Vista para editar un libro específico (con ISBN)
+    path('csv/upload', views.subir_csv, name='subir_csv'), # Vista para subir datos desde un archivo CSV
+    path('catalogo', views.catalogo, name='catalogo'), # Vista para el catálogo
+    path('logout/', views.exit, name='exit'), # Vista para cerrar sesión
 
 
 

@@ -12,13 +12,23 @@ from django.dispatch import receiver
 from django.db.models.signals import pre_save
 from datetime import date, timedelta
 
-# Create your views here.
+
 @login_required
 def prestamos(request):
+    """
+    Vista para mostrar la lista de préstamos y filtrar por búsqueda.
+
+    Parameters:
+        request (HttpRequest): La solicitud HTTP recibida.
+
+    Returns:
+        HttpResponse: La respuesta HTTP que muestra la lista de préstamos.
+    """
+
     busqueda = request.GET.get("buscar_prestamo")
     prestamos = Prestamo.objects.all()
 
-   #querys con la busqueda, que se obtiene del input name del index.html
+   #Querys con la busqueda, que se obtiene del input name del index.html
     if busqueda:
         prestamos = Prestamo.objects.filter( 
             Q(isbn = busqueda) |
@@ -29,6 +39,16 @@ def prestamos(request):
     return render(request, 'prestamos/index.html', {'prestamos': prestamos})
 
 def nuevo_prestamo(request):
+    """
+    Vista para crear un nuevo préstamo.
+
+    Parameters:
+        request (HttpRequest): La solicitud HTTP recibida.
+
+    Returns:
+        HttpResponse: La respuesta HTTP que muestra el formulario para un nuevo préstamo.
+    """
+
     formulario = PrestamoForm(request.POST or None, request.FILES or None)
     
     if formulario.is_valid():
@@ -37,6 +57,18 @@ def nuevo_prestamo(request):
     return render(request, 'prestamos/nuevo_prestamo.html', {'formulario': formulario,'mensaje':'OK'})
 
 def editar_prestamo(request, id_prestamo):
+    """
+    Vista para editar un préstamo existente.
+
+    Parameters:
+        request (HttpRequest): La solicitud HTTP recibida.
+        id_prestamo (int): El ID del préstamo a editar.
+
+    Returns:
+        HttpResponse: La respuesta HTTP que muestra el formulario para editar el préstamo.
+    """
+
+    # Obtener el préstamo
     prestamo = Prestamo.objects.get(id_prestamo=id_prestamo)
     
     # Formatear las fechas
@@ -65,6 +97,17 @@ def editar_prestamo(request, id_prestamo):
     return render(request, 'prestamos/editar_prestamo.html', {'formulario':formulario})
 
 def eliminar_prestamo(request, id_prestamo):
+    """
+    Vista para eliminar un préstamo existente.
+
+    Parameters:
+        request (HttpRequest): La solicitud HTTP recibida.
+        id_prestamo (int): El ID del préstamo a eliminar.
+
+    Returns:
+        HttpResponse: La respuesta HTTP que redirige a la lista de préstamos después de la eliminación.
+    """
+    
     prestamo = Prestamo.objects.get(id_prestamo=id_prestamo)
     prestamo.delete()
     return redirect('prestamos')

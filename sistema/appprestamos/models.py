@@ -8,21 +8,37 @@ from django.dispatch import receiver
 from django.db.models.signals import pre_save
 
 def fecha_hoy():
-    # Obtener la fecha actual
+
     fecha =  date.today()
-    # Formatear la fecha en el formato "yyyy-mm-dd"
     fecha_formateada = fecha.strftime("%Y-%m-%d")
     
     return fecha_formateada
 
 def fecha_devolucion():
-    # Obtener la fecha actual y sumar 7 días
+
     fecha_calculada = date.today() + timedelta(days=7)
-    # Formatear la fecha en el formato "yyyy-mm-dd"
     fecha_cal_formateada = fecha_calculada.strftime("%Y-%m-%d")
 
     return fecha_cal_formateada
+
 class Prestamo(models.Model):
+    """
+    Modelo que representa un préstamo de un libro a un usuario.
+
+    Attributes:
+        id_prestamo (AutoField): Campo autoincremental para identificar un préstamo de manera única.
+        isbn (ForeignKey): Clave foránea que relaciona el préstamo con un libro.
+        rut_usuario (ForeignKey): Clave foránea que relaciona el préstamo con un usuario.
+        fecha_prestamo (DateField): Fecha en que se realiza el préstamo.
+        fecha_devolucion_calculada (DateField): Fecha estimada de devolución calculada automáticamente.
+        fecha_devolucion_real (DateField, optional): Fecha real de devolución (opcional, puede ser nula).
+        estado_prestamo (CharField): Estado actual del préstamo (vigente, finalizado, atrasado).
+
+    Methods:
+        __str__: Devuelve una representación legible en cadena del objeto Prestamo.
+
+    """
+
     ESTADOS_CHOICE =[
     ('vigente','Préstamo Vigente'),
     ('finalizado','Préstamo Finalizado'),
@@ -39,6 +55,7 @@ class Prestamo(models.Model):
     estado_prestamo = models.CharField(max_length=50,choices=ESTADOS_CHOICE,default='vigente') #0=Préstamo Vigente, 1=Préstamo Finalizado 2=Devolución Atrasada 
 
     def __str__(self):
+
         fila = "ID Préstamo: " + self.id_prestamo + "Isbn: " + self.isbn + "Rut Usuario: " + self.rut_usuario + "Fecha Préstamo: " + self.fecha_prestamo + "Fecha Devolución: " + self.fecha_prestamo + "Fecha Préstamo: " + self.fecha_prestamo 
 
         return fila
@@ -48,6 +65,7 @@ class Prestamo(models.Model):
 
 @receiver(pre_save, sender=Prestamo)
 def actualizar_fecha_devolucion_real(sender, instance, **kwargs):
+    
     # Verificar si el estado del préstamo es "finalizado"
     if instance.estado_prestamo == 'finalizado':
         # Actualizar la fecha_devolucion_real con la fecha actual
