@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html lang="es" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>appusuarios package &#8212; documentación de Biblioteca Colegio San Marcos Apóstol - 1.0</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=039e1c02" />
+    <script src="../_static/documentation_options.js?v=4936afed"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/translations.js?v=efdbd0b9"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="sistema package" href="sistema.html" />
+    <link rel="prev" title="appprestamos package" href="appprestamos.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="appusuarios-package">
+<h1>appusuarios package<a class="headerlink" href="#appusuarios-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-appusuarios.forms">
+<span id="appusuarios-forms-module"></span><h2>appusuarios.forms module<a class="headerlink" href="#module-appusuarios.forms" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="appusuarios.forms.UsuarioForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">appusuarios.forms.</span></span><span class="sig-name descname"><span class="pre">UsuarioForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/appusuarios/forms.html#UsuarioForm"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appusuarios.forms.UsuarioForm" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>Formulario para la creación y edición de usuarios.</p>
+<p>Attributes:
+- model (Usuario): Modelo asociado al formulario.
+- fields (list): Lista de campos a incluir en el formulario.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="appusuarios.forms.UsuarioForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="../_modules/appusuarios/forms.html#UsuarioForm.Meta"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appusuarios.forms.UsuarioForm.Meta" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Clase Meta para configuración adicional del formulario.</p>
+<p>Attributes:
+- model (Usuario): Modelo asociado al formulario.
+- fields (list): Lista de campos a incluir en el formulario.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appusuarios.forms.UsuarioForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'__all__'</span></em><a class="headerlink" href="#appusuarios.forms.UsuarioForm.Meta.fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appusuarios.forms.UsuarioForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#appusuarios.forms.UsuarioForm.Meta.model" title="Link to this definition">¶</a></dt>
+<dd><p>alias de <a class="reference internal" href="#appusuarios.models.Usuario" title="appusuarios.models.Usuario"><code class="xref py py-class docutils literal notranslate"><span class="pre">Usuario</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appusuarios.forms.UsuarioForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'curso':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'nombre_usuario':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'rut_usuario':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#appusuarios.forms.UsuarioForm.base_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appusuarios.forms.UsuarioForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#appusuarios.forms.UsuarioForm.declared_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="appusuarios.forms.UsuarioForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#appusuarios.forms.UsuarioForm.media" title="Link to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-appusuarios.models">
+<span id="appusuarios-models-module"></span><h2>appusuarios.models module<a class="headerlink" href="#module-appusuarios.models" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="appusuarios.models.Usuario">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">appusuarios.models.</span></span><span class="sig-name descname"><span class="pre">Usuario</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/appusuarios/models.html#Usuario"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appusuarios.models.Usuario" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Modelo que representa a un usuario en el sistema.</p>
+<p>Attributes:
+- rut_usuario (str): Rut del usuario, clave primaria.
+- nombre_usuario (str): Nombre del usuario.
+- email (EmailField): Dirección de correo electrónico del usuario.
+- curso (str): Curso al que pertenece el usuario.</p>
+<p>Methods:
+- __str__(): Devuelve una representación en cadena del usuario.</p>
+<p>Meta:
+- verbose_name (str): Nombre amigable para el modelo en singular.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="appusuarios.models.Usuario.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#appusuarios.models.Usuario.DoesNotExist" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="appusuarios.models.Usuario.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#appusuarios.models.Usuario.MultipleObjectsReturned" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appusuarios.models.Usuario.curso">
+<span class="sig-name descname"><span class="pre">curso</span></span><a class="headerlink" href="#appusuarios.models.Usuario.curso" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appusuarios.models.Usuario.email">
+<span class="sig-name descname"><span class="pre">email</span></span><a class="headerlink" href="#appusuarios.models.Usuario.email" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appusuarios.models.Usuario.nombre_usuario">
+<span class="sig-name descname"><span class="pre">nombre_usuario</span></span><a class="headerlink" href="#appusuarios.models.Usuario.nombre_usuario" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appusuarios.models.Usuario.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#appusuarios.models.Usuario.objects" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appusuarios.models.Usuario.prestamo_set">
+<span class="sig-name descname"><span class="pre">prestamo_set</span></span><a class="headerlink" href="#appusuarios.models.Usuario.prestamo_set" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appusuarios.models.Usuario.rut_usuario">
+<span class="sig-name descname"><span class="pre">rut_usuario</span></span><a class="headerlink" href="#appusuarios.models.Usuario.rut_usuario" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-appusuarios.urls">
+<span id="appusuarios-urls-module"></span><h2>appusuarios.urls module<a class="headerlink" href="#module-appusuarios.urls" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-appusuarios.views">
+<span id="appusuarios-views-module"></span><h2>appusuarios.views module<a class="headerlink" href="#module-appusuarios.views" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="appusuarios.views.crear">
+<span class="sig-prename descclassname"><span class="pre">appusuarios.views.</span></span><span class="sig-name descname"><span class="pre">crear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/appusuarios/views.html#crear"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appusuarios.views.crear" title="Link to this definition">¶</a></dt>
+<dd><p>Vista para crear un nuevo usuario.</p>
+<p>Permite el ingreso de información para crear un nuevo usuario.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): La solicitud HTTP.</p>
+</dd>
+<dt>Returns:</dt><dd><p>HttpResponse: Respuesta HTTP que renderiza el formulario de creación de usuario.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="appusuarios.views.editar">
+<span class="sig-prename descclassname"><span class="pre">appusuarios.views.</span></span><span class="sig-name descname"><span class="pre">editar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rut_usuario</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/appusuarios/views.html#editar"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appusuarios.views.editar" title="Link to this definition">¶</a></dt>
+<dd><p>Vista para editar un usuario existente.</p>
+<p>Permite modificar la información de un usuario existente.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): La solicitud HTTP.
+rut_usuario (str): El RUT del usuario a editar.</p>
+</dd>
+<dt>Returns:</dt><dd><p>HttpResponse: Respuesta HTTP que renderiza el formulario de edición de usuario.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="appusuarios.views.eliminar">
+<span class="sig-prename descclassname"><span class="pre">appusuarios.views.</span></span><span class="sig-name descname"><span class="pre">eliminar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rut_usuario</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/appusuarios/views.html#eliminar"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appusuarios.views.eliminar" title="Link to this definition">¶</a></dt>
+<dd><p>Elimina un usuario existente.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): La solicitud HTTP.
+rut_usuario (str): El RUT del usuario a eliminar.</p>
+</dd>
+<dt>Returns:</dt><dd><p>HttpResponse: Respuesta HTTP de redirección a la lista de usuarios.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="appusuarios.views.subir_usuarios">
+<span class="sig-prename descclassname"><span class="pre">appusuarios.views.</span></span><span class="sig-name descname"><span class="pre">subir_usuarios</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/appusuarios/views.html#subir_usuarios"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appusuarios.views.subir_usuarios" title="Link to this definition">¶</a></dt>
+<dd><p>Sube usuarios desde un archivo CSV.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): La solicitud HTTP.</p>
+</dd>
+<dt>Returns:</dt><dd><p>HttpResponse: Respuesta HTTP de redirección a la lista de usuarios.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="appusuarios.views.usuarios">
+<span class="sig-prename descclassname"><span class="pre">appusuarios.views.</span></span><span class="sig-name descname"><span class="pre">usuarios</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/appusuarios/views.html#usuarios"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appusuarios.views.usuarios" title="Link to this definition">¶</a></dt>
+<dd><p>Vista para listar usuarios y realizar búsquedas.</p>
+<p>Permite la paginación de usuarios y búsquedas por nombre, rut y email.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): La solicitud HTTP.</p>
+</dd>
+<dt>Returns:</dt><dd><p>HttpResponse: Respuesta HTTP que renderiza la lista de usuarios.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-appusuarios">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-appusuarios" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Biblioteca Colegio San Marcos Apóstol</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navegación</h3>
+<p class="caption" role="heading"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="appejemplares.html">appejemplares package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appprestamos.html">appprestamos package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">appusuarios package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-appusuarios.forms">appusuarios.forms module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-appusuarios.models">appusuarios.models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-appusuarios.urls">appusuarios.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-appusuarios.views">appusuarios.views module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-appusuarios">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sistema.html">sistema package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="appprestamos.html" title="capítulo anterior">appprestamos package</a></li>
+      <li>Next: <a href="sistema.html" title="próximo capítulo">sistema package</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Búsqueda rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Catalina Fabres - Diego Hernández - Marialejandra Holguín.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/modules/appusuarios.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -25,7 +25,6 @@ class Libro(models.Model):
     - __str__: Representación en cadena del libro (devuelve el ISBN como identificador).
     - is_upperclass: Verifica si la categoría del libro está en mayúsculas.
     - delete: Sobrescribe el método de eliminación para realizar acciones personalizadas.
-
     """
 
     CATEGORIAS_CHOICES = [
@@ -65,7 +64,6 @@ class Libro(models.Model):
         Args:
         - using (str): Nombre de la base de datos.
         - keep_parents (bool): Indica si se deben mantener las relaciones de clave externa.
-
         """
 
         #self.imagen.storage.delete(self.imagen.name)
@@ -85,18 +83,18 @@ def actualizar_ejemplares_libro(sender, instance, **kwargs):
     - sender: Clase que envía la señal (Prestamo en este caso).
     - instance: Instancia de Prestamo que activa la señal.
     - **kwargs: Argumentos adicionales.
-
     """
     
-    # Obtener el libro asociado al préstamo
+    
     libro = instance.isbn
+    # Obtener el libro asociado al préstamo
 
-    # Verificar si es un préstamo nuevo
     if instance._state.adding:
-        # Restar 1 al número de ejemplares disponibles
+    # Verificar si es un préstamo nuevo    
         libro.ejemplares_disponibles -= 1
-        # Sumar 1 al número de ejemplares prestados
+        # Restar 1 al número de ejemplares disponibles
         libro.ejemplares_prestados += 1
+        # Sumar 1 al número de ejemplares prestados
     else:
         # Verificar si se está finalizando un préstamo
         if instance.estado_prestamo == 'finalizado':
@@ -105,5 +103,6 @@ def actualizar_ejemplares_libro(sender, instance, **kwargs):
             # Restar 1 al número de ejemplares prestados
             libro.ejemplares_prestados -= 1
 
-    # Guardar los cambios en el libro
+    
     libro.save()
+    # Guardar los cambios en el libro

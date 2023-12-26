@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+
+<html lang="es" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>appejemplares package &#8212; documentación de Biblioteca Colegio San Marcos Apóstol - 1.0</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=039e1c02" />
+    <script src="../_static/documentation_options.js?v=4936afed"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/translations.js?v=efdbd0b9"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="appprestamos package" href="appprestamos.html" />
+    <link rel="prev" title="Bienvenido a la Documentación del Proyecto: Biblioteca Colegio San Marcos Apóstol" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="appejemplares-package">
+<h1>appejemplares package<a class="headerlink" href="#appejemplares-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-appejemplares.forms">
+<span id="appejemplares-forms-module"></span><h2>appejemplares.forms module<a class="headerlink" href="#module-appejemplares.forms" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="appejemplares.forms.LibroForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">appejemplares.forms.</span></span><span class="sig-name descname"><span class="pre">LibroForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/appejemplares/forms.html#LibroForm"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appejemplares.forms.LibroForm" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelForm</span></code></p>
+<p>Formulario para la creación y edición de libros.</p>
+<p>Este formulario se basa en el modelo Libro y se utiliza para recopilar
+información sobre los libros, permitiendo su creación y edición.</p>
+<dl class="simple">
+<dt>Atributos:</dt><dd><p>model: Clase del modelo asociado al formulario (Libro).
+fields: Lista de campos del modelo a incluir en el formulario.</p>
+</dd>
+<dt>Campos Adicionales:</dt><dd><p>categoria: Campo ChoiceField que representa la categoría del libro.</p>
+</dd>
+<dt>Métodos:</dt><dd><p>__init__: Inicializa el formulario y ajusta el widget del campo “categoria”.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appejemplares.forms.LibroForm.CATEGORIAS_CHOICES">
+<span class="sig-name descname"><span class="pre">CATEGORIAS_CHOICES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[('novelas',</span> <span class="pre">'Novelas'),</span> <span class="pre">('suspenso',</span> <span class="pre">'Suspenso'),</span> <span class="pre">('historia',</span> <span class="pre">'Historia'),</span> <span class="pre">('test',</span> <span class="pre">'Test')]</span></em><a class="headerlink" href="#appejemplares.forms.LibroForm.CATEGORIAS_CHOICES" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="appejemplares.forms.LibroForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="../_modules/appejemplares/forms.html#LibroForm.Meta"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appejemplares.forms.LibroForm.Meta" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appejemplares.forms.LibroForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'__all__'</span></em><a class="headerlink" href="#appejemplares.forms.LibroForm.Meta.fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appejemplares.forms.LibroForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#appejemplares.forms.LibroForm.Meta.model" title="Link to this definition">¶</a></dt>
+<dd><p>alias de <a class="reference internal" href="#appejemplares.models.Libro" title="appejemplares.models.Libro"><code class="xref py py-class docutils literal notranslate"><span class="pre">Libro</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appejemplares.forms.LibroForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'autor':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'categoria':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'descripcion':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'ejemplares_disponibles':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'ejemplares_prestados':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'ejemplares_reservados':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'ejemplares_totales':</span> <span class="pre">&lt;django.forms.fields.IntegerField</span> <span class="pre">object&gt;,</span> <span class="pre">'isbn':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'titulo':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'ubicacion':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#appejemplares.forms.LibroForm.base_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appejemplares.forms.LibroForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'categoria':</span> <span class="pre">&lt;django.forms.fields.ChoiceField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#appejemplares.forms.LibroForm.declared_fields" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="appejemplares.forms.LibroForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#appejemplares.forms.LibroForm.media" title="Link to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-appejemplares.models">
+<span id="appejemplares-models-module"></span><h2>appejemplares.models module<a class="headerlink" href="#module-appejemplares.models" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="appejemplares.models.Libro">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">appejemplares.models.</span></span><span class="sig-name descname"><span class="pre">Libro</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/appejemplares/models.html#Libro"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appejemplares.models.Libro" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Modelo que representa un libro en la biblioteca.</p>
+<p>Attributes:
+- isbn (str): Número de identificación único del libro.
+- titulo (str): Título del libro.
+- autor (str): Autor del libro.
+- categoria (str): Categoría del libro (e.g., Novelas, Suspenso).
+- ubicacion (str): Ubicación física del libro en la biblioteca.
+- ejemplares_totales (int): Número total de ejemplares del libro.
+- ejemplares_disponibles (int): Número de ejemplares disponibles para préstamo.
+- ejemplares_prestados (int): Número de ejemplares actualmente prestados.
+- ejemplares_reservados (int): Número de ejemplares reservados.
+- descripcion (str): Descripción del libro (opcional).</p>
+<p>Methods:
+- __str__: Representación en cadena del libro (devuelve el ISBN como identificador).
+- is_upperclass: Verifica si la categoría del libro está en mayúsculas.
+- delete: Sobrescribe el método de eliminación para realizar acciones personalizadas.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appejemplares.models.Libro.CATEGORIAS_CHOICES">
+<span class="sig-name descname"><span class="pre">CATEGORIAS_CHOICES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[('novelas',</span> <span class="pre">'Novelas'),</span> <span class="pre">('suspenso',</span> <span class="pre">'Suspenso'),</span> <span class="pre">('historia',</span> <span class="pre">'Historia'),</span> <span class="pre">('test',</span> <span class="pre">'Test')]</span></em><a class="headerlink" href="#appejemplares.models.Libro.CATEGORIAS_CHOICES" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="appejemplares.models.Libro.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#appejemplares.models.Libro.DoesNotExist" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="appejemplares.models.Libro.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#appejemplares.models.Libro.MultipleObjectsReturned" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appejemplares.models.Libro.autor">
+<span class="sig-name descname"><span class="pre">autor</span></span><a class="headerlink" href="#appejemplares.models.Libro.autor" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appejemplares.models.Libro.categoria">
+<span class="sig-name descname"><span class="pre">categoria</span></span><a class="headerlink" href="#appejemplares.models.Libro.categoria" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="appejemplares.models.Libro.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">using</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_parents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/appejemplares/models.html#Libro.delete"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appejemplares.models.Libro.delete" title="Link to this definition">¶</a></dt>
+<dd><p>Sobrescribe el método de eliminación para realizar acciones personalizadas.</p>
+<p>En este caso, se podría agregar la eliminación de la imagen asociada al libro si se utiliza algún campo de imagen.</p>
+<p>Args:
+- using (str): Nombre de la base de datos.
+- keep_parents (bool): Indica si se deben mantener las relaciones de clave externa.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appejemplares.models.Libro.descripcion">
+<span class="sig-name descname"><span class="pre">descripcion</span></span><a class="headerlink" href="#appejemplares.models.Libro.descripcion" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appejemplares.models.Libro.ejemplares_disponibles">
+<span class="sig-name descname"><span class="pre">ejemplares_disponibles</span></span><a class="headerlink" href="#appejemplares.models.Libro.ejemplares_disponibles" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appejemplares.models.Libro.ejemplares_prestados">
+<span class="sig-name descname"><span class="pre">ejemplares_prestados</span></span><a class="headerlink" href="#appejemplares.models.Libro.ejemplares_prestados" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appejemplares.models.Libro.ejemplares_reservados">
+<span class="sig-name descname"><span class="pre">ejemplares_reservados</span></span><a class="headerlink" href="#appejemplares.models.Libro.ejemplares_reservados" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appejemplares.models.Libro.ejemplares_totales">
+<span class="sig-name descname"><span class="pre">ejemplares_totales</span></span><a class="headerlink" href="#appejemplares.models.Libro.ejemplares_totales" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="appejemplares.models.Libro.get_categoria_display">
+<span class="sig-name descname"><span class="pre">get_categoria_display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">categoria&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#appejemplares.models.Libro.get_categoria_display" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="appejemplares.models.Libro.is_upperclass">
+<span class="sig-name descname"><span class="pre">is_upperclass</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/appejemplares/models.html#Libro.is_upperclass"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appejemplares.models.Libro.is_upperclass" title="Link to this definition">¶</a></dt>
+<dd><p>Verifica si la categoría del libro está en mayúsculas.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appejemplares.models.Libro.isbn">
+<span class="sig-name descname"><span class="pre">isbn</span></span><a class="headerlink" href="#appejemplares.models.Libro.isbn" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appejemplares.models.Libro.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#appejemplares.models.Libro.objects" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appejemplares.models.Libro.prestamo_set">
+<span class="sig-name descname"><span class="pre">prestamo_set</span></span><a class="headerlink" href="#appejemplares.models.Libro.prestamo_set" title="Link to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appejemplares.models.Libro.titulo">
+<span class="sig-name descname"><span class="pre">titulo</span></span><a class="headerlink" href="#appejemplares.models.Libro.titulo" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="appejemplares.models.Libro.ubicacion">
+<span class="sig-name descname"><span class="pre">ubicacion</span></span><a class="headerlink" href="#appejemplares.models.Libro.ubicacion" title="Link to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="appejemplares.models.actualizar_ejemplares_libro">
+<span class="sig-prename descclassname"><span class="pre">appejemplares.models.</span></span><span class="sig-name descname"><span class="pre">actualizar_ejemplares_libro</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sender</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/appejemplares/models.html#actualizar_ejemplares_libro"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appejemplares.models.actualizar_ejemplares_libro" title="Link to this definition">¶</a></dt>
+<dd><p>Actualiza el número de ejemplares disponibles y prestados cuando se realiza un préstamo.</p>
+<p>Este método se conecta a la señal pre_save de Prestamo para actualizar automáticamente
+el número de ejemplares disponibles y prestados en el libro asociado cuando se realiza
+un préstamo o se finaliza un préstamo.</p>
+<p>Args:
+- sender: Clase que envía la señal (Prestamo en este caso).
+- instance: Instancia de Prestamo que activa la señal.
+- <a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs: Argumentos adicionales.</p>
+</dd></dl>
+
+</section>
+<section id="module-appejemplares.urls">
+<span id="appejemplares-urls-module"></span><h2>appejemplares.urls module<a class="headerlink" href="#module-appejemplares.urls" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-appejemplares.views">
+<span id="appejemplares-views-module"></span><h2>appejemplares.views module<a class="headerlink" href="#module-appejemplares.views" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="appejemplares.views.catalogo">
+<span class="sig-prename descclassname"><span class="pre">appejemplares.views.</span></span><span class="sig-name descname"><span class="pre">catalogo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/appejemplares/views.html#catalogo"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appejemplares.views.catalogo" title="Link to this definition">¶</a></dt>
+<dd><p>Lista libros y muestra una barra de búsqueda en el catálogo.
+Para usuarios que reservan libros.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): La solicitud HTTP recibida.</p>
+</dd>
+<dt>Returns:</dt><dd><p>HttpResponse: La respuesta HTTP renderizada para la página del catálogo.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="appejemplares.views.crear">
+<span class="sig-prename descclassname"><span class="pre">appejemplares.views.</span></span><span class="sig-name descname"><span class="pre">crear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/appejemplares/views.html#crear"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appejemplares.views.crear" title="Link to this definition">¶</a></dt>
+<dd><p>Crea un nuevo libro y redirige a la página de listado de libros.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): La solicitud HTTP recibida.</p>
+</dd>
+<dt>Returns:</dt><dd><p>HttpResponse: La respuesta HTTP redirigida a la página de listado de libros.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="appejemplares.views.editar">
+<span class="sig-prename descclassname"><span class="pre">appejemplares.views.</span></span><span class="sig-name descname"><span class="pre">editar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isbn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/appejemplares/views.html#editar"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appejemplares.views.editar" title="Link to this definition">¶</a></dt>
+<dd><p>Edita un libro existente y redirige a la página de listado de libros.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): La solicitud HTTP recibida.
+isbn (str): El ISBN del libro a editar.</p>
+</dd>
+<dt>Returns:</dt><dd><p>HttpResponse: La respuesta HTTP redirigida a la página de listado de libros.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="appejemplares.views.eliminar">
+<span class="sig-prename descclassname"><span class="pre">appejemplares.views.</span></span><span class="sig-name descname"><span class="pre">eliminar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isbn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/appejemplares/views.html#eliminar"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appejemplares.views.eliminar" title="Link to this definition">¶</a></dt>
+<dd><p>Elimina un libro existente y redirige a la página de listado de libros.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): La solicitud HTTP recibida.
+isbn (str): El ISBN del libro a eliminar.</p>
+</dd>
+<dt>Returns:</dt><dd><p>HttpResponse: La respuesta HTTP redirigida a la página de listado de libros.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="appejemplares.views.exit">
+<span class="sig-prename descclassname"><span class="pre">appejemplares.views.</span></span><span class="sig-name descname"><span class="pre">exit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/appejemplares/views.html#exit"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appejemplares.views.exit" title="Link to this definition">¶</a></dt>
+<dd><p>Cierra la sesión del usuario y redirige a la página de inicio.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): La solicitud HTTP recibida.</p>
+</dd>
+<dt>Returns:</dt><dd><p>HttpResponse: La respuesta HTTP redirigida a la página de inicio.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="appejemplares.views.inicio">
+<span class="sig-prename descclassname"><span class="pre">appejemplares.views.</span></span><span class="sig-name descname"><span class="pre">inicio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/appejemplares/views.html#inicio"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appejemplares.views.inicio" title="Link to this definition">¶</a></dt>
+<dd><p>Renderiza la página de inicio.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): La solicitud HTTP recibida.</p>
+</dd>
+<dt>Returns:</dt><dd><p>HttpResponse: La respuesta HTTP renderizada para la página de inicio.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="appejemplares.views.libros">
+<span class="sig-prename descclassname"><span class="pre">appejemplares.views.</span></span><span class="sig-name descname"><span class="pre">libros</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/appejemplares/views.html#libros"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appejemplares.views.libros" title="Link to this definition">¶</a></dt>
+<dd><p>Lista libros y muestra una barra de búsqueda para bibliotecarios.
+También realiza la paginación de los resultados.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): La solicitud HTTP recibida.</p>
+</dd>
+<dt>Returns:</dt><dd><p>HttpResponse: La respuesta HTTP renderizada para la página de listado de libros.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="appejemplares.views.nosotros">
+<span class="sig-prename descclassname"><span class="pre">appejemplares.views.</span></span><span class="sig-name descname"><span class="pre">nosotros</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/appejemplares/views.html#nosotros"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appejemplares.views.nosotros" title="Link to this definition">¶</a></dt>
+<dd><p>Renderiza la página «Nosotros».</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): La solicitud HTTP recibida.</p>
+</dd>
+<dt>Returns:</dt><dd><p>HttpResponse: La respuesta HTTP renderizada para la página «Nosotros».</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="appejemplares.views.subir_csv">
+<span class="sig-prename descclassname"><span class="pre">appejemplares.views.</span></span><span class="sig-name descname"><span class="pre">subir_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/appejemplares/views.html#subir_csv"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#appejemplares.views.subir_csv" title="Link to this definition">¶</a></dt>
+<dd><p>Sube un archivo CSV con información de libros y actualiza la base de datos.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): La solicitud HTTP recibida.</p>
+</dd>
+<dt>Returns:</dt><dd><p>HttpResponse: La respuesta HTTP redirigida a la página de listado de libros.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-appejemplares">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-appejemplares" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Biblioteca Colegio San Marcos Apóstol</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navegación</h3>
+<p class="caption" role="heading"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">appejemplares package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-appejemplares.forms">appejemplares.forms module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-appejemplares.models">appejemplares.models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-appejemplares.urls">appejemplares.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-appejemplares.views">appejemplares.views module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-appejemplares">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="appprestamos.html">appprestamos package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appusuarios.html">appusuarios package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sistema.html">sistema package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../index.html" title="capítulo anterior">Bienvenido a la Documentación del Proyecto: Biblioteca Colegio San Marcos Apóstol</a></li>
+      <li>Next: <a href="appprestamos.html" title="próximo capítulo">appprestamos package</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Búsqueda rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Catalina Fabres - Diego Hernández - Marialejandra Holguín.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/modules/appejemplares.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

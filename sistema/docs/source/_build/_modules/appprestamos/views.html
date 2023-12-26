@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="es" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>appprestamos.views &#8212; documentación de Biblioteca Colegio San Marcos Apóstol - 1.0</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
+    <script src="../../_static/documentation_options.js?v=4936afed"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/translations.js?v=efdbd0b9"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Código fuente para appprestamos.views</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.decorators</span> <span class="kn">import</span> <span class="n">login_required</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+<span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Q</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Prestamo</span>
+<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">PrestamoForm</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.forms</span> <span class="kn">import</span> <span class="n">AuthenticationForm</span>
+<span class="kn">from</span> <span class="nn">appejemplares.models</span> <span class="kn">import</span> <span class="n">Libro</span>
+<span class="kn">from</span> <span class="nn">appejemplares</span> <span class="kn">import</span> <span class="n">views</span>
+<span class="kn">from</span> <span class="nn">appusuarios.models</span> <span class="kn">import</span> <span class="n">Usuario</span>
+<span class="kn">from</span> <span class="nn">django.dispatch</span> <span class="kn">import</span> <span class="n">receiver</span>
+<span class="kn">from</span> <span class="nn">django.db.models.signals</span> <span class="kn">import</span> <span class="n">pre_save</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">timedelta</span>
+
+
+<div class="viewcode-block" id="prestamos">
+<a class="viewcode-back" href="../../modules/appprestamos.html#appprestamos.views.prestamos">[documentos]</a>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">prestamos</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Vista para mostrar la lista de préstamos y filtrar por búsqueda.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        request (HttpRequest): La solicitud HTTP recibida.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        HttpResponse: La respuesta HTTP que muestra la lista de préstamos.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">busqueda</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;buscar_prestamo&quot;</span><span class="p">)</span>
+    <span class="n">prestamos</span> <span class="o">=</span> <span class="n">Prestamo</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+   <span class="c1">#Querys con la busqueda, que se obtiene del input name del index.html</span>
+    <span class="k">if</span> <span class="n">busqueda</span><span class="p">:</span>
+        <span class="n">prestamos</span> <span class="o">=</span> <span class="n">Prestamo</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> 
+            <span class="n">Q</span><span class="p">(</span><span class="n">isbn</span> <span class="o">=</span> <span class="n">busqueda</span><span class="p">)</span> <span class="o">|</span>
+            <span class="n">Q</span><span class="p">(</span><span class="n">rut_usuario</span> <span class="o">=</span> <span class="n">busqueda</span><span class="p">)</span> <span class="o">|</span>
+            <span class="n">Q</span><span class="p">(</span><span class="n">estado_prestamo__icontains</span> <span class="o">=</span> <span class="n">busqueda</span><span class="p">)</span> 
+    <span class="p">)</span> 
+    
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;prestamos/index.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;prestamos&#39;</span><span class="p">:</span> <span class="n">prestamos</span><span class="p">})</span></div>
+
+
+<div class="viewcode-block" id="nuevo_prestamo">
+<a class="viewcode-back" href="../../modules/appprestamos.html#appprestamos.views.nuevo_prestamo">[documentos]</a>
+<span class="k">def</span> <span class="nf">nuevo_prestamo</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Vista para crear un nuevo préstamo.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        request (HttpRequest): La solicitud HTTP recibida.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        HttpResponse: La respuesta HTTP que muestra el formulario para un nuevo préstamo.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">formulario</span> <span class="o">=</span> <span class="n">PrestamoForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">FILES</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">formulario</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+        <span class="n">formulario</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;prestamos&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;prestamos/nuevo_prestamo.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;formulario&#39;</span><span class="p">:</span> <span class="n">formulario</span><span class="p">,</span><span class="s1">&#39;mensaje&#39;</span><span class="p">:</span><span class="s1">&#39;OK&#39;</span><span class="p">})</span></div>
+
+
+<div class="viewcode-block" id="editar_prestamo">
+<a class="viewcode-back" href="../../modules/appprestamos.html#appprestamos.views.editar_prestamo">[documentos]</a>
+<span class="k">def</span> <span class="nf">editar_prestamo</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">id_prestamo</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Vista para editar un préstamo existente.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        request (HttpRequest): La solicitud HTTP recibida.</span>
+<span class="sd">        id_prestamo (int): El ID del préstamo a editar.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        HttpResponse: La respuesta HTTP que muestra el formulario para editar el préstamo.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Obtener el préstamo</span>
+    <span class="n">prestamo</span> <span class="o">=</span> <span class="n">Prestamo</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">id_prestamo</span><span class="o">=</span><span class="n">id_prestamo</span><span class="p">)</span>
+    
+    <span class="c1"># Formatear las fechas</span>
+    <span class="n">fecha_devolucion_calculada</span> <span class="o">=</span> <span class="n">prestamo</span><span class="o">.</span><span class="n">fecha_devolucion_calculada</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">fecha_prestamo</span> <span class="o">=</span> <span class="n">prestamo</span><span class="o">.</span><span class="n">fecha_prestamo</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Establecer los valores originales del préstamo en el formulario</span>
+    <span class="n">formulario</span> <span class="o">=</span> <span class="n">PrestamoForm</span><span class="p">(</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">POST</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">FILES</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">instance</span><span class="o">=</span><span class="n">prestamo</span><span class="p">,</span>
+        <span class="n">initial</span><span class="o">=</span><span class="p">{</span>
+            <span class="s1">&#39;fecha_devolucion_calculada&#39;</span><span class="p">:</span> <span class="n">fecha_devolucion_calculada</span><span class="p">,</span>
+            <span class="s1">&#39;fecha_prestamo&#39;</span><span class="p">:</span> <span class="n">fecha_prestamo</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="c1"># Deshabilitar la edición de los campos</span>
+    <span class="n">formulario</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">&#39;isbn&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;disabled&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">formulario</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">&#39;rut_usuario&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;disabled&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">formulario</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="s1">&#39;fecha_prestamo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">widget</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;disabled&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+
+    <span class="k">if</span> <span class="n">formulario</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span> <span class="ow">and</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>
+        <span class="n">formulario</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;prestamos&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;prestamos/editar_prestamo.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;formulario&#39;</span><span class="p">:</span><span class="n">formulario</span><span class="p">})</span></div>
+
+
+<div class="viewcode-block" id="eliminar_prestamo">
+<a class="viewcode-back" href="../../modules/appprestamos.html#appprestamos.views.eliminar_prestamo">[documentos]</a>
+<span class="k">def</span> <span class="nf">eliminar_prestamo</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">id_prestamo</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Vista para eliminar un préstamo existente.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        request (HttpRequest): La solicitud HTTP recibida.</span>
+<span class="sd">        id_prestamo (int): El ID del préstamo a eliminar.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        HttpResponse: La respuesta HTTP que redirige a la lista de préstamos después de la eliminación.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">prestamo</span> <span class="o">=</span> <span class="n">Prestamo</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">id_prestamo</span><span class="o">=</span><span class="n">id_prestamo</span><span class="p">)</span>
+    <span class="n">prestamo</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;prestamos&#39;</span><span class="p">)</span></div>
+
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Biblioteca Colegio San Marcos Apóstol</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navegación</h3>
+<p class="caption" role="heading"><span class="caption-text">Contenidos:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/appejemplares.html">appejemplares package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/appprestamos.html">appprestamos package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/appusuarios.html">appusuarios package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/sistema.html">sistema package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Código de módulo</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Búsqueda rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Catalina Fabres - Diego Hernández - Marialejandra Holguín.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

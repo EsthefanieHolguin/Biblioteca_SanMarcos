@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="es" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>appejemplares.forms &#8212; documentación de Biblioteca Colegio San Marcos Apóstol - 1.0</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b3523f8e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
+    <script src="../../_static/documentation_options.js?v=4936afed"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/translations.js?v=efdbd0b9"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Código fuente para appejemplares.forms</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">forms</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Libro</span>
+
+<div class="viewcode-block" id="LibroForm">
+<a class="viewcode-back" href="../../modules/appejemplares.html#appejemplares.forms.LibroForm">[documentos]</a>
+<span class="k">class</span> <span class="nc">LibroForm</span><span class="p">(</span><span class="n">forms</span><span class="o">.</span><span class="n">ModelForm</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Formulario para la creación y edición de libros.</span>
+
+<span class="sd">    Este formulario se basa en el modelo Libro y se utiliza para recopilar</span>
+<span class="sd">    información sobre los libros, permitiendo su creación y edición.</span>
+
+<span class="sd">    Atributos:</span>
+<span class="sd">        model: Clase del modelo asociado al formulario (Libro).</span>
+<span class="sd">        fields: Lista de campos del modelo a incluir en el formulario.</span>
+
+<span class="sd">    Campos Adicionales:</span>
+<span class="sd">        categoria: Campo ChoiceField que representa la categoría del libro.</span>
+
+<span class="sd">    Métodos:</span>
+<span class="sd">        __init__: Inicializa el formulario y ajusta el widget del campo &#39;categoria&#39;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="LibroForm.Meta">
+<a class="viewcode-back" href="../../modules/appejemplares.html#appejemplares.forms.LibroForm.Meta">[documentos]</a>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Libro</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="s1">&#39;__all__&#39;</span></div>
+
+
+    <span class="c1"># Opciones para el campo &#39;categoria&#39;</span>
+    <span class="n">CATEGORIAS_CHOICES</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;novelas&#39;</span><span class="p">,</span> <span class="s1">&#39;Novelas&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;suspenso&#39;</span><span class="p">,</span> <span class="s1">&#39;Suspenso&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;historia&#39;</span><span class="p">,</span> <span class="s1">&#39;Historia&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="s1">&#39;Test&#39;</span><span class="p">),</span>
+    <span class="p">]</span>
+        
+    <span class="n">categoria</span> <span class="o">=</span> <span class="n">forms</span><span class="o">.</span><span class="n">ChoiceField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">CATEGORIAS_CHOICES</span><span class="p">,</span> <span class="n">widget</span><span class="o">=</span><span class="n">forms</span><span class="o">.</span><span class="n">Select</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;form-control&#39;</span><span class="p">}))</span></div>
+
+    
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Biblioteca Colegio San Marcos Apóstol</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navegación</h3>
+<p class="caption" role="heading"><span class="caption-text">Contenidos:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/appejemplares.html">appejemplares package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/appprestamos.html">appprestamos package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/appusuarios.html">appusuarios package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/sistema.html">sistema package</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Código de módulo</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Búsqueda rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Ir a" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Catalina Fabres - Diego Hernández - Marialejandra Holguín.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

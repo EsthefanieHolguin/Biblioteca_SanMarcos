@@ -1,0 +1,133 @@
+\indexentry{module@\spxentry{module}!appejemplares.forms@\spxentry{appejemplares.forms}|hyperpage}{1}
+\indexentry{appejemplares.forms@\spxentry{appejemplares.forms}!module@\spxentry{module}|hyperpage}{1}
+\indexentry{LibroForm (clase en appejemplares.forms)@\spxentry{LibroForm}\spxextra{clase en appejemplares.forms}|hyperpage}{1}
+\indexentry{CATEGORIAS\_CHOICES (atributo de appejemplares.forms.LibroForm)@\spxentry{CATEGORIAS\_CHOICES}\spxextra{atributo de appejemplares.forms.LibroForm}|hyperpage}{1}
+\indexentry{LibroForm.Meta (clase en appejemplares.forms)@\spxentry{LibroForm.Meta}\spxextra{clase en appejemplares.forms}|hyperpage}{1}
+\indexentry{fields (atributo de appejemplares.forms.LibroForm.Meta)@\spxentry{fields}\spxextra{atributo de appejemplares.forms.LibroForm.Meta}|hyperpage}{1}
+\indexentry{model (atributo de appejemplares.forms.LibroForm.Meta)@\spxentry{model}\spxextra{atributo de appejemplares.forms.LibroForm.Meta}|hyperpage}{1}
+\indexentry{base\_fields (atributo de appejemplares.forms.LibroForm)@\spxentry{base\_fields}\spxextra{atributo de appejemplares.forms.LibroForm}|hyperpage}{2}
+\indexentry{declared\_fields (atributo de appejemplares.forms.LibroForm)@\spxentry{declared\_fields}\spxextra{atributo de appejemplares.forms.LibroForm}|hyperpage}{2}
+\indexentry{media (appejemplares.forms.LibroForm propiedad)@\spxentry{media}\spxextra{appejemplares.forms.LibroForm propiedad}|hyperpage}{2}
+\indexentry{module@\spxentry{module}!appejemplares.models@\spxentry{appejemplares.models}|hyperpage}{2}
+\indexentry{appejemplares.models@\spxentry{appejemplares.models}!module@\spxentry{module}|hyperpage}{2}
+\indexentry{Libro (clase en appejemplares.models)@\spxentry{Libro}\spxextra{clase en appejemplares.models}|hyperpage}{2}
+\indexentry{CATEGORIAS\_CHOICES (atributo de appejemplares.models.Libro)@\spxentry{CATEGORIAS\_CHOICES}\spxextra{atributo de appejemplares.models.Libro}|hyperpage}{2}
+\indexentry{Libro.DoesNotExist@\spxentry{Libro.DoesNotExist}|hyperpage}{2}
+\indexentry{Libro.MultipleObjectsReturned@\spxentry{Libro.MultipleObjectsReturned}|hyperpage}{2}
+\indexentry{autor (atributo de appejemplares.models.Libro)@\spxentry{autor}\spxextra{atributo de appejemplares.models.Libro}|hyperpage}{2}
+\indexentry{categoria (atributo de appejemplares.models.Libro)@\spxentry{categoria}\spxextra{atributo de appejemplares.models.Libro}|hyperpage}{2}
+\indexentry{delete() (método de appejemplares.models.Libro)@\spxentry{delete()}\spxextra{método de appejemplares.models.Libro}|hyperpage}{2}
+\indexentry{descripcion (atributo de appejemplares.models.Libro)@\spxentry{descripcion}\spxextra{atributo de appejemplares.models.Libro}|hyperpage}{3}
+\indexentry{ejemplares\_disponibles (atributo de appejemplares.models.Libro)@\spxentry{ejemplares\_disponibles}\spxextra{atributo de appejemplares.models.Libro}|hyperpage}{3}
+\indexentry{ejemplares\_prestados (atributo de appejemplares.models.Libro)@\spxentry{ejemplares\_prestados}\spxextra{atributo de appejemplares.models.Libro}|hyperpage}{3}
+\indexentry{ejemplares\_reservados (atributo de appejemplares.models.Libro)@\spxentry{ejemplares\_reservados}\spxextra{atributo de appejemplares.models.Libro}|hyperpage}{3}
+\indexentry{ejemplares\_totales (atributo de appejemplares.models.Libro)@\spxentry{ejemplares\_totales}\spxextra{atributo de appejemplares.models.Libro}|hyperpage}{3}
+\indexentry{get\_categoria\_display() (método de appejemplares.models.Libro)@\spxentry{get\_categoria\_display()}\spxextra{método de appejemplares.models.Libro}|hyperpage}{3}
+\indexentry{is\_upperclass() (método de appejemplares.models.Libro)@\spxentry{is\_upperclass()}\spxextra{método de appejemplares.models.Libro}|hyperpage}{3}
+\indexentry{isbn (atributo de appejemplares.models.Libro)@\spxentry{isbn}\spxextra{atributo de appejemplares.models.Libro}|hyperpage}{3}
+\indexentry{objects (atributo de appejemplares.models.Libro)@\spxentry{objects}\spxextra{atributo de appejemplares.models.Libro}|hyperpage}{3}
+\indexentry{prestamo\_set (atributo de appejemplares.models.Libro)@\spxentry{prestamo\_set}\spxextra{atributo de appejemplares.models.Libro}|hyperpage}{3}
+\indexentry{titulo (atributo de appejemplares.models.Libro)@\spxentry{titulo}\spxextra{atributo de appejemplares.models.Libro}|hyperpage}{3}
+\indexentry{ubicacion (atributo de appejemplares.models.Libro)@\spxentry{ubicacion}\spxextra{atributo de appejemplares.models.Libro}|hyperpage}{3}
+\indexentry{actualizar\_ejemplares\_libro() (en el módulo appejemplares.models)@\spxentry{actualizar\_ejemplares\_libro()}\spxextra{en el módulo appejemplares.models}|hyperpage}{4}
+\indexentry{module@\spxentry{module}!appejemplares.urls@\spxentry{appejemplares.urls}|hyperpage}{4}
+\indexentry{appejemplares.urls@\spxentry{appejemplares.urls}!module@\spxentry{module}|hyperpage}{4}
+\indexentry{module@\spxentry{module}!appejemplares.views@\spxentry{appejemplares.views}|hyperpage}{4}
+\indexentry{appejemplares.views@\spxentry{appejemplares.views}!module@\spxentry{module}|hyperpage}{4}
+\indexentry{catalogo() (en el módulo appejemplares.views)@\spxentry{catalogo()}\spxextra{en el módulo appejemplares.views}|hyperpage}{4}
+\indexentry{crear() (en el módulo appejemplares.views)@\spxentry{crear()}\spxextra{en el módulo appejemplares.views}|hyperpage}{4}
+\indexentry{editar() (en el módulo appejemplares.views)@\spxentry{editar()}\spxextra{en el módulo appejemplares.views}|hyperpage}{4}
+\indexentry{eliminar() (en el módulo appejemplares.views)@\spxentry{eliminar()}\spxextra{en el módulo appejemplares.views}|hyperpage}{4}
+\indexentry{exit() (en el módulo appejemplares.views)@\spxentry{exit()}\spxextra{en el módulo appejemplares.views}|hyperpage}{4}
+\indexentry{inicio() (en el módulo appejemplares.views)@\spxentry{inicio()}\spxextra{en el módulo appejemplares.views}|hyperpage}{5}
+\indexentry{libros() (en el módulo appejemplares.views)@\spxentry{libros()}\spxextra{en el módulo appejemplares.views}|hyperpage}{5}
+\indexentry{nosotros() (en el módulo appejemplares.views)@\spxentry{nosotros()}\spxextra{en el módulo appejemplares.views}|hyperpage}{5}
+\indexentry{subir\_csv() (en el módulo appejemplares.views)@\spxentry{subir\_csv()}\spxextra{en el módulo appejemplares.views}|hyperpage}{5}
+\indexentry{module@\spxentry{module}!appejemplares@\spxentry{appejemplares}|hyperpage}{5}
+\indexentry{appejemplares@\spxentry{appejemplares}!module@\spxentry{module}|hyperpage}{5}
+\indexentry{module@\spxentry{module}!appprestamos.forms@\spxentry{appprestamos.forms}|hyperpage}{7}
+\indexentry{appprestamos.forms@\spxentry{appprestamos.forms}!module@\spxentry{module}|hyperpage}{7}
+\indexentry{PrestamoForm (clase en appprestamos.forms)@\spxentry{PrestamoForm}\spxextra{clase en appprestamos.forms}|hyperpage}{7}
+\indexentry{ESTADOS\_CHOICE (atributo de appprestamos.forms.PrestamoForm)@\spxentry{ESTADOS\_CHOICE}\spxextra{atributo de appprestamos.forms.PrestamoForm}|hyperpage}{7}
+\indexentry{PrestamoForm.Meta (clase en appprestamos.forms)@\spxentry{PrestamoForm.Meta}\spxextra{clase en appprestamos.forms}|hyperpage}{7}
+\indexentry{fields (atributo de appprestamos.forms.PrestamoForm.Meta)@\spxentry{fields}\spxextra{atributo de appprestamos.forms.PrestamoForm.Meta}|hyperpage}{8}
+\indexentry{model (atributo de appprestamos.forms.PrestamoForm.Meta)@\spxentry{model}\spxextra{atributo de appprestamos.forms.PrestamoForm.Meta}|hyperpage}{8}
+\indexentry{base\_fields (atributo de appprestamos.forms.PrestamoForm)@\spxentry{base\_fields}\spxextra{atributo de appprestamos.forms.PrestamoForm}|hyperpage}{8}
+\indexentry{declared\_fields (atributo de appprestamos.forms.PrestamoForm)@\spxentry{declared\_fields}\spxextra{atributo de appprestamos.forms.PrestamoForm}|hyperpage}{8}
+\indexentry{media (appprestamos.forms.PrestamoForm propiedad)@\spxentry{media}\spxextra{appprestamos.forms.PrestamoForm propiedad}|hyperpage}{8}
+\indexentry{widgets (atributo de appprestamos.forms.PrestamoForm)@\spxentry{widgets}\spxextra{atributo de appprestamos.forms.PrestamoForm}|hyperpage}{8}
+\indexentry{module@\spxentry{module}!appprestamos.models@\spxentry{appprestamos.models}|hyperpage}{8}
+\indexentry{appprestamos.models@\spxentry{appprestamos.models}!module@\spxentry{module}|hyperpage}{8}
+\indexentry{Prestamo (clase en appprestamos.models)@\spxentry{Prestamo}\spxextra{clase en appprestamos.models}|hyperpage}{8}
+\indexentry{Prestamo.DoesNotExist@\spxentry{Prestamo.DoesNotExist}|hyperpage}{8}
+\indexentry{ESTADOS\_CHOICE (atributo de appprestamos.models.Prestamo)@\spxentry{ESTADOS\_CHOICE}\spxextra{atributo de appprestamos.models.Prestamo}|hyperpage}{8}
+\indexentry{Prestamo.MultipleObjectsReturned@\spxentry{Prestamo.MultipleObjectsReturned}|hyperpage}{8}
+\indexentry{estado\_prestamo (atributo de appprestamos.models.Prestamo)@\spxentry{estado\_prestamo}\spxextra{atributo de appprestamos.models.Prestamo}|hyperpage}{8}
+\indexentry{fecha\_devolucion\_calculada (atributo de appprestamos.models.Prestamo)@\spxentry{fecha\_devolucion\_calculada}\spxextra{atributo de appprestamos.models.Prestamo}|hyperpage}{8}
+\indexentry{fecha\_devolucion\_real (atributo de appprestamos.models.Prestamo)@\spxentry{fecha\_devolucion\_real}\spxextra{atributo de appprestamos.models.Prestamo}|hyperpage}{9}
+\indexentry{fecha\_prestamo (atributo de appprestamos.models.Prestamo)@\spxentry{fecha\_prestamo}\spxextra{atributo de appprestamos.models.Prestamo}|hyperpage}{9}
+\indexentry{get\_estado\_prestamo\_display() (método de appprestamos.models.Prestamo)@\spxentry{get\_estado\_prestamo\_display()}\spxextra{método de appprestamos.models.Prestamo}|hyperpage}{9}
+\indexentry{get\_next\_by\_fecha\_devolucion\_calculada() (método de appprestamos.models.Prestamo)@\spxentry{get\_next\_by\_fecha\_devolucion\_calculada()}\spxextra{método de appprestamos.models.Prestamo}|hyperpage}{9}
+\indexentry{get\_next\_by\_fecha\_prestamo() (método de appprestamos.models.Prestamo)@\spxentry{get\_next\_by\_fecha\_prestamo()}\spxextra{método de appprestamos.models.Prestamo}|hyperpage}{9}
+\indexentry{get\_previous\_by\_fecha\_devolucion\_calculada() (método de appprestamos.models.Prestamo)@\spxentry{get\_previous\_by\_fecha\_devolucion\_calculada()}\spxextra{método de appprestamos.models.Prestamo}|hyperpage}{9}
+\indexentry{get\_previous\_by\_fecha\_prestamo() (método de appprestamos.models.Prestamo)@\spxentry{get\_previous\_by\_fecha\_prestamo()}\spxextra{método de appprestamos.models.Prestamo}|hyperpage}{9}
+\indexentry{id\_prestamo (atributo de appprestamos.models.Prestamo)@\spxentry{id\_prestamo}\spxextra{atributo de appprestamos.models.Prestamo}|hyperpage}{9}
+\indexentry{isbn (atributo de appprestamos.models.Prestamo)@\spxentry{isbn}\spxextra{atributo de appprestamos.models.Prestamo}|hyperpage}{9}
+\indexentry{isbn\_id (atributo de appprestamos.models.Prestamo)@\spxentry{isbn\_id}\spxextra{atributo de appprestamos.models.Prestamo}|hyperpage}{9}
+\indexentry{objects (atributo de appprestamos.models.Prestamo)@\spxentry{objects}\spxextra{atributo de appprestamos.models.Prestamo}|hyperpage}{9}
+\indexentry{rut\_usuario (atributo de appprestamos.models.Prestamo)@\spxentry{rut\_usuario}\spxextra{atributo de appprestamos.models.Prestamo}|hyperpage}{9}
+\indexentry{rut\_usuario\_id (atributo de appprestamos.models.Prestamo)@\spxentry{rut\_usuario\_id}\spxextra{atributo de appprestamos.models.Prestamo}|hyperpage}{9}
+\indexentry{actualizar\_fecha\_devolucion\_real() (en el módulo appprestamos.models)@\spxentry{actualizar\_fecha\_devolucion\_real()}\spxextra{en el módulo appprestamos.models}|hyperpage}{9}
+\indexentry{fecha\_devolucion() (en el módulo appprestamos.models)@\spxentry{fecha\_devolucion()}\spxextra{en el módulo appprestamos.models}|hyperpage}{10}
+\indexentry{fecha\_hoy() (en el módulo appprestamos.models)@\spxentry{fecha\_hoy()}\spxextra{en el módulo appprestamos.models}|hyperpage}{10}
+\indexentry{module@\spxentry{module}!appprestamos.urls@\spxentry{appprestamos.urls}|hyperpage}{10}
+\indexentry{appprestamos.urls@\spxentry{appprestamos.urls}!module@\spxentry{module}|hyperpage}{10}
+\indexentry{module@\spxentry{module}!appprestamos.views@\spxentry{appprestamos.views}|hyperpage}{10}
+\indexentry{appprestamos.views@\spxentry{appprestamos.views}!module@\spxentry{module}|hyperpage}{10}
+\indexentry{editar\_prestamo() (en el módulo appprestamos.views)@\spxentry{editar\_prestamo()}\spxextra{en el módulo appprestamos.views}|hyperpage}{10}
+\indexentry{eliminar\_prestamo() (en el módulo appprestamos.views)@\spxentry{eliminar\_prestamo()}\spxextra{en el módulo appprestamos.views}|hyperpage}{10}
+\indexentry{nuevo\_prestamo() (en el módulo appprestamos.views)@\spxentry{nuevo\_prestamo()}\spxextra{en el módulo appprestamos.views}|hyperpage}{10}
+\indexentry{prestamos() (en el módulo appprestamos.views)@\spxentry{prestamos()}\spxextra{en el módulo appprestamos.views}|hyperpage}{10}
+\indexentry{module@\spxentry{module}!appprestamos@\spxentry{appprestamos}|hyperpage}{11}
+\indexentry{appprestamos@\spxentry{appprestamos}!module@\spxentry{module}|hyperpage}{11}
+\indexentry{module@\spxentry{module}!appusuarios.forms@\spxentry{appusuarios.forms}|hyperpage}{13}
+\indexentry{appusuarios.forms@\spxentry{appusuarios.forms}!module@\spxentry{module}|hyperpage}{13}
+\indexentry{UsuarioForm (clase en appusuarios.forms)@\spxentry{UsuarioForm}\spxextra{clase en appusuarios.forms}|hyperpage}{13}
+\indexentry{UsuarioForm.Meta (clase en appusuarios.forms)@\spxentry{UsuarioForm.Meta}\spxextra{clase en appusuarios.forms}|hyperpage}{13}
+\indexentry{fields (atributo de appusuarios.forms.UsuarioForm.Meta)@\spxentry{fields}\spxextra{atributo de appusuarios.forms.UsuarioForm.Meta}|hyperpage}{13}
+\indexentry{model (atributo de appusuarios.forms.UsuarioForm.Meta)@\spxentry{model}\spxextra{atributo de appusuarios.forms.UsuarioForm.Meta}|hyperpage}{13}
+\indexentry{base\_fields (atributo de appusuarios.forms.UsuarioForm)@\spxentry{base\_fields}\spxextra{atributo de appusuarios.forms.UsuarioForm}|hyperpage}{13}
+\indexentry{declared\_fields (atributo de appusuarios.forms.UsuarioForm)@\spxentry{declared\_fields}\spxextra{atributo de appusuarios.forms.UsuarioForm}|hyperpage}{13}
+\indexentry{media (appusuarios.forms.UsuarioForm propiedad)@\spxentry{media}\spxextra{appusuarios.forms.UsuarioForm propiedad}|hyperpage}{14}
+\indexentry{module@\spxentry{module}!appusuarios.models@\spxentry{appusuarios.models}|hyperpage}{14}
+\indexentry{appusuarios.models@\spxentry{appusuarios.models}!module@\spxentry{module}|hyperpage}{14}
+\indexentry{Usuario (clase en appusuarios.models)@\spxentry{Usuario}\spxextra{clase en appusuarios.models}|hyperpage}{14}
+\indexentry{Usuario.DoesNotExist@\spxentry{Usuario.DoesNotExist}|hyperpage}{14}
+\indexentry{Usuario.MultipleObjectsReturned@\spxentry{Usuario.MultipleObjectsReturned}|hyperpage}{14}
+\indexentry{curso (atributo de appusuarios.models.Usuario)@\spxentry{curso}\spxextra{atributo de appusuarios.models.Usuario}|hyperpage}{14}
+\indexentry{email (atributo de appusuarios.models.Usuario)@\spxentry{email}\spxextra{atributo de appusuarios.models.Usuario}|hyperpage}{14}
+\indexentry{nombre\_usuario (atributo de appusuarios.models.Usuario)@\spxentry{nombre\_usuario}\spxextra{atributo de appusuarios.models.Usuario}|hyperpage}{14}
+\indexentry{objects (atributo de appusuarios.models.Usuario)@\spxentry{objects}\spxextra{atributo de appusuarios.models.Usuario}|hyperpage}{14}
+\indexentry{prestamo\_set (atributo de appusuarios.models.Usuario)@\spxentry{prestamo\_set}\spxextra{atributo de appusuarios.models.Usuario}|hyperpage}{14}
+\indexentry{rut\_usuario (atributo de appusuarios.models.Usuario)@\spxentry{rut\_usuario}\spxextra{atributo de appusuarios.models.Usuario}|hyperpage}{14}
+\indexentry{module@\spxentry{module}!appusuarios.urls@\spxentry{appusuarios.urls}|hyperpage}{15}
+\indexentry{appusuarios.urls@\spxentry{appusuarios.urls}!module@\spxentry{module}|hyperpage}{15}
+\indexentry{module@\spxentry{module}!appusuarios.views@\spxentry{appusuarios.views}|hyperpage}{15}
+\indexentry{appusuarios.views@\spxentry{appusuarios.views}!module@\spxentry{module}|hyperpage}{15}
+\indexentry{crear() (en el módulo appusuarios.views)@\spxentry{crear()}\spxextra{en el módulo appusuarios.views}|hyperpage}{15}
+\indexentry{editar() (en el módulo appusuarios.views)@\spxentry{editar()}\spxextra{en el módulo appusuarios.views}|hyperpage}{15}
+\indexentry{eliminar() (en el módulo appusuarios.views)@\spxentry{eliminar()}\spxextra{en el módulo appusuarios.views}|hyperpage}{15}
+\indexentry{subir\_usuarios() (en el módulo appusuarios.views)@\spxentry{subir\_usuarios()}\spxextra{en el módulo appusuarios.views}|hyperpage}{15}
+\indexentry{usuarios() (en el módulo appusuarios.views)@\spxentry{usuarios()}\spxextra{en el módulo appusuarios.views}|hyperpage}{15}
+\indexentry{module@\spxentry{module}!appusuarios@\spxentry{appusuarios}|hyperpage}{16}
+\indexentry{appusuarios@\spxentry{appusuarios}!module@\spxentry{module}|hyperpage}{16}
+\indexentry{module@\spxentry{module}!sistema.asgi@\spxentry{sistema.asgi}|hyperpage}{17}
+\indexentry{sistema.asgi@\spxentry{sistema.asgi}!module@\spxentry{module}|hyperpage}{17}
+\indexentry{module@\spxentry{module}!sistema.settings@\spxentry{sistema.settings}|hyperpage}{17}
+\indexentry{sistema.settings@\spxentry{sistema.settings}!module@\spxentry{module}|hyperpage}{17}
+\indexentry{module@\spxentry{module}!sistema.urls@\spxentry{sistema.urls}|hyperpage}{17}
+\indexentry{sistema.urls@\spxentry{sistema.urls}!module@\spxentry{module}|hyperpage}{17}
+\indexentry{module@\spxentry{module}!sistema.wsgi@\spxentry{sistema.wsgi}|hyperpage}{17}
+\indexentry{sistema.wsgi@\spxentry{sistema.wsgi}!module@\spxentry{module}|hyperpage}{17}
+\indexentry{module@\spxentry{module}!sistema@\spxentry{sistema}|hyperpage}{18}
+\indexentry{sistema@\spxentry{sistema}!module@\spxentry{module}|hyperpage}{18}
